@@ -1,0 +1,26 @@
+<div class="gym-home-area" *ngIf="data" style="background-image: url({{data.bgImage.url}});">
+    <div class="gym-banner-slides">
+        <owl-carousel-o [options]="gymBannerSlides">
+            <ng-template carouselSlide *ngFor="let content of data.slides;">
+                <div class="gym-banner-item">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 col-md-12">
+                                <div class="gym-banner-content">
+                                    <h1>{{content.title}}</h1>
+                                    <p>{{content.desc}}</p>
+                                    <a routerLink="{{content.buttonLink}}" class="default-btn"><i class="{{content.buttonIcon}}"></i>{{content.buttonText}}<span></span></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="gym-banner-image">
+                                    <img [src]="content.image.url" alt="image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </owl-carousel-o>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="app-download-area" *ngIf="data">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-4 col-md-12">
+                <div class="app-download-content">
+                    <span class="sub-title">{{data.subtitle}}</span>
+                    <h2>{{data.title}}</h2>
+                    <p>{{data.paragraph}}</p>
+                    <a href="#" class="default-btn">
+                        <i class="flaticon-user"></i>
+                        Download The App
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <div class="app-download-image">
+                    <img [src]="data.image.url" alt="image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

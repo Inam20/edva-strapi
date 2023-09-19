@@ -1,0 +1,16 @@
+<div class="video-area" *ngIf="data">
+    <div class="container">
+        <div class="video-box mt-0">
+            <div class="image">
+                <img [src]="data.image.url" class="shadow" alt="image">
+            </div>
+            <a
+                href="{{data.videoLink}}"
+                target="_blank"
+                class="video-btn"
+            >
+                <i class="flaticon-play"></i>
+            </a>
+        </div>
+    </div>
+</div>

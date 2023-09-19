@@ -1,0 +1,42 @@
+<div class="page-title-area">
+    <div class="container">
+        <div class="page-title-content">
+            <ul>
+                <li><a routerLink="/">Home</a></li>
+                <li>Categories</li>
+            </ul>
+            <h2>Categories</h2>
+        </div>
+    </div>
+    <div class="shape9"><img src="assets/img/shape/shape8.svg" alt="image"></div>
+</div>
+
+<div class="categories-area pt-100 pb-70" *ngIf="data">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 col-md-6" *ngFor="let content of data;">
+                <div class="single-categories-box">
+                    <img [src]="content.image.url" alt="image">
+                    <div class="content">
+                        <h3>{{content.title}}</h3>
+                        <span>{{content.courses.length}} Courses</span>
+                    </div>
+                    <a
+                        [routerLink]="['/course-category', content.slug]"
+                        class="link-btn"
+                    ></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="subscribe-area bg-f9f9f9 ptb-100">
+    <div class="container">
+        <app-subscribe></app-subscribe>
+    </div>
+    <div class="shape4"><img src="assets/img/shape/shape4.png" alt="image"></div>
+    <div class="shape13"><img src="assets/img/shape/shape12.png" alt="image"></div>
+    <div class="shape14"><img src="assets/img/shape/shape13.png" alt="image"></div>
+    <div class="shape15"><img src="assets/img/shape/shape14.png" alt="image"></div>
+</div>

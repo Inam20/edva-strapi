@@ -1,0 +1,22 @@
+<div class="health-services-area bg-fcf7f3 pt-100 pb-70" *ngIf="data" style="background-image: url({{data.bgImage.url}});">
+    <div class="container">
+        <div class="section-title">
+            <span class="sub-title">{{data.subtitle}}</span>
+            <h2 class="playfair-display-font">{{data.title}}</h2>
+            <p>{{data.paragraph}}</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let content of data.allServices">
+                <div class="single-health-services-box">
+                    <div class="icon">
+                        <i class="{{content.icon}}"></i>
+                    </div>
+                    <h3 class="playfair-display-font">
+                        {{content.title}}
+                    </h3>
+                    <p>{{content.paragraph}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

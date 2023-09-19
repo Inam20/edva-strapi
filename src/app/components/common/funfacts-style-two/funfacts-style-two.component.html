@@ -1,0 +1,13 @@
+<div class="funfacts-area-two" *ngIf="data">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6" *ngFor="let content of data.funfactsList.slice(0, 4)">
+                <div class="single-funfacts">
+                    <img src="assets/img/shape/funfacts-shape2.png" alt="image">
+                    <h3><span [countUp]="content.number">00</span></h3>
+                    <p>{{content.title}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

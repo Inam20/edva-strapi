@@ -1,0 +1,156 @@
+<div class="page-title-area">
+    <div class="container">
+        <div class="page-title-content">
+            <ul>
+                <li><a routerLink="/">Home</a></li>
+                <li>Courses Right Sidebar</li>
+            </ul>
+            <h2>Courses Right Sidebar</h2>
+        </div>
+    </div>
+    <div class="shape9"><img src="assets/img/shape/shape8.svg" alt="image"></div>
+</div>
+
+<div class="courses-area pt-100 pb-70" *ngIf="data">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="edva-grid-sorting row align-items-center">
+                    <div class="col-lg-6 col-md-6 result-count">
+                        <p>We found <span class="count">{{data.length}}</span> courses available for you</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 ordering">
+                        <div class="select-box">
+                            <label>Sort By:</label>
+                            <select>
+                                <option>Default</option>
+                                <option>Popularity</option>
+                                <option>Latest</option>
+                                <option>Price: low to high</option>
+                                <option>Price: high to low</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6" *ngFor="let content of data | paginate: { itemsPerPage: 8, currentPage: coursesGrid }">
+                        <div class="single-courses-box">
+                            <div class="courses-image">
+                                <a
+                                    [routerLink]="['/course', content.slug]"
+                                    class="d-block image"
+                                >
+                                    <img [src]="content.image.url" alt="image">
+                                </a>
+                                <div class="price shadow">${{content.price}}</div>
+                                <button 
+                                    type="submit" 
+                                    class="default-btn"
+                                    (click)="addToCart(content)"
+                                >
+                                    Add To Cart
+                                    <span></span>
+                                </button>
+                            </div>
+                            <div class="courses-content">
+                                <div class="course-author d-flex align-items-center">
+                                    <img src="assets/img/avatar.jpg" class="rounded-circle" alt="image">
+                                    <span *ngIf="content.admin_user">{{content.admin_user.firstname}} {{content.admin_user.lastname}}</span>
+                                </div>
+                                <h3>
+                                    <a
+                                        [routerLink]="['/course', content.slug]"
+                                    >
+                                        {{content.title}}
+                                    </a>
+                                </h3>
+                                <p>{{content.shortDesc}}</p>
+                                <ul class="courses-box-footer d-flex justify-content-between align-items-center">
+                                    <li *ngIf="content.numberOfLesson"><i class='flaticon-agenda'></i> {{content.numberOfLesson}} Lessons</li>
+                                    <li *ngIf="content.numberOfStudent"><i class='flaticon-people'></i> {{content.numberOfStudent}} Students</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12" *ngIf="data?.length > 8">
+                        <div class="pagination-area text-center">
+                            <pagination-controls previousLabel="" nextLabel="" (pageChange)="coursesGrid = $event"></pagination-controls>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <aside class="widget-area">
+                    <div class="widget widget_search">
+                        <h3 class="widget-title">Search</h3>
+                        <div class="search-form" [class.active]="classSearchApplied">
+                            <input type="text" [(ngModel)]="term" class="search-field" placeholder="Search courses..." (click)="togglSearcheClass()">
+                            <button type="submit">
+                                <i class="bx bx-search-alt"></i>
+                            </button>
+                            <div class="blog-lists" *ngIf="data">
+                                <div class="list-group-item" *ngFor="let content of data | filter : term">
+                                    <div class="row align-items-center" (click)="togglSearcheClass()">
+                                        <div class="col-lg-3 col-md-2 col-3">
+                                            <a 
+                                                [routerLink]="['/course', content.slug]"
+                                                class="course-img"
+                                            >
+                                                <img [src]="content.image.url" alt="image">
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-9 col-md-10 col-9">
+                                            <div class="info">
+                                                <h3>
+                                                    <a 
+                                                        [routerLink]="['/course', content.slug]"
+                                                    >
+                                                        {{content.title}}
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget widget_recent_courses" *ngIf="data">
+                        <h3 class="widget-title">Recent Courses</h3>
+                        <article class="item" *ngFor="let content of data.slice(0, 3)">
+                            <a
+                                [routerLink]="['/course', content.slug]"
+                                class="thumb"
+                            >
+                                <span class="fullimage cover" role="img" style="background-image: url({{content.image.url}});"></span>
+                            </a>
+                            <div class="info">
+                                <span>${{content.price}}</span>
+                                <h4 class="title usmall">
+                                    <a 
+                                        [routerLink]="['/course', content.slug]"
+                                    >
+                                        {{content.title}}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div class="clear"></div>
+                        </article>
+                    </div>
+                    <div class="widget widget_tag_cloud" *ngIf="categoriesData">
+                        <h3 class="widget-title">Recent Categories</h3>
+                        <div class="tagcloud">
+                            <a
+                                *ngFor="let content of categoriesData.slice(0, 15);"
+                                [routerLink]="['/course-category', content.slug]"
+                            >
+                                {{content.title}}
+                                <span class="tag-link-count">({{content.courses.length}})</span>
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>

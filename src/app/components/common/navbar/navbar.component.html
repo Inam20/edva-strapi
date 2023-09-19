@@ -1,0 +1,149 @@
+<div class="navbar-area" ngStickyNav stickyClass="sticky-box-shadow" ngStickyNav *ngIf="data">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" [class.active]="classApplied">
+            <a class="navbar-brand" routerLink="/">
+                <img [src]="data.logo.url" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" (click)="toggleClass()">
+                <span class="burger-menu">
+                    <span class="top-bar"></span>
+                    <span class="middle-bar"></span>
+                    <span class="bottom-bar"></span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="search-box" [class.active]="classSearchApplied">
+                    <input type="text" [(ngModel)]="term" class="input-search" placeholder="Search for anything" (click)="togglSearcheClass()">
+                    <button type="submit">
+                        <i class="flaticon-search"></i>
+                    </button>
+                    <div class="courses-lists" *ngIf="searchData">
+                        <div class="list-group-item" *ngFor="let content of searchData | filter : term">
+                            <div class="row align-items-center" (click)="togglSearcheClass()">
+                                <div class="col-lg-3 col-md-2 col-3">
+                                    <a 
+                                        [routerLink]="['/course', content.slug]"
+                                        class="course-img"
+                                    >
+                                        <img [src]="content.image.url" alt="image">
+                                    </a>
+                                </div>
+                                <div class="col-lg-9 col-md-10 col-9">
+                                    <div class="info">
+                                        <h3>
+                                            <a 
+                                                [routerLink]="['/course', content.slug]"
+                                            >
+                                                {{content.title}}
+                                            </a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="navbar-nav">
+                    <li class="nav-item" *ngFor="let item of data.menuLists">
+                        <a 
+                            routerLink="{{item.menuLink}}" 
+                            [class]="item.dropdowns?.length > 0 ? 'nav-link dropdown-toggle' : 'nav-link'" 
+                            routerLinkActive="active" 
+                            [routerLinkActiveOptions]="{exact: true}"
+                        >
+                            {{item.menuName}}
+                        </a>
+                        <ng-container *ngIf="item.dropdowns?.length > 0">
+                            <ul class="dropdown-menu">
+                                <li 
+                                    class="nav-item" 
+                                    *ngFor="let dropdownItem of item.dropdowns"
+                                >
+                                    <a 
+                                        routerLink="{{dropdownItem.menuLink}}" 
+                                        routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}" 
+                                        class="nav-link"
+                                    >
+                                        {{dropdownItem.menuName}}
+                                    </a>
+                                </li>
+                            </ul>
+                        </ng-container>
+                    </li>
+                </ul>
+                <ul class="navbar-nav for-responsive">
+                    <li class="nav-item" *ngFor="let item of data.menuLists">
+                        <a 
+                            routerLink="{{item.menuLink}}" 
+                            [class]="item.dropdowns?.length > 0 ? 'nav-link dropdown-toggle' : 'nav-link'" 
+                            routerLinkActive="active" 
+                            [routerLinkActiveOptions]="{exact: true}"
+                            (click)="toggleClass()"
+                        >
+                            {{item.menuName}}
+                        </a>
+                        <ng-container *ngIf="item.dropdowns?.length > 0">
+                            <ul class="dropdown-menu">
+                                <li 
+                                    class="nav-item" 
+                                    *ngFor="let dropdownItem of item.dropdowns"
+                                >
+                                    <a 
+                                        routerLink="{{dropdownItem.menuLink}}" 
+                                        routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}" 
+                                        class="nav-link"
+                                        (click)="toggleClass()"
+                                    >
+                                        {{dropdownItem.menuName}}
+                                    </a>
+                                </li>
+                            </ul>
+                        </ng-container>
+                    </li>
+                </ul>
+            </div>
+            <div class="others-option d-flex align-items-center">
+                <div class="option-item">
+                    <div class="cart-btn">
+                        <a
+                            routerLink="/courses-cart"
+                        >
+                            <i class='bx bx-book-add'></i>
+                            <span>{{cartCourses.length}}</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="option-item" *ngIf="cartProducts.length">
+                    <div class="cart-btn">
+                        <a
+                            routerLink="/cart"
+                        >
+                            <i class='flaticon-shopping-cart'></i>
+                            <span>{{cartProducts.length}}</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="option-item" *ngIf="!isLoggedIn">
+                    <a
+                        routerLink="/profile-authentication"
+                        class="default-btn"
+                    >
+                        <i class="flaticon-user"></i>
+                        Login/Register
+                        <span></span>
+                    </a>
+                </div>
+                <div class="option-item" *ngIf="isLoggedIn">
+                    <a
+                        (click)="logOutUser()"
+                        class="default-btn"
+                    >
+                        <i class="flaticon-user"></i>
+                        Logout
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>

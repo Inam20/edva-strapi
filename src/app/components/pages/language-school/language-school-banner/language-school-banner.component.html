@@ -1,0 +1,23 @@
+<div class="main-banner-wrapper" *ngIf="data">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-5 col-md-12">
+                <div class="main-banner-wrapper-content">
+                    <h1>{{data.title}}</h1>
+                    <p>{{data.desc}}</p>
+                    <a routerLink="{{data.buttonLink}}" class="default-btn"><i class="{{data.buttonIcon}}"></i>{{data.buttonText}}<span></span></a>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-12">
+                <div class="main-banner-wrapper-image text-center">
+                    <img [src]="data.image.url" alt="image">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner-shape14" *ngIf="data.shapeHide"><img src="assets/img/shape/banner-shape15.png" alt="image"></div>
+    <div class="banner-shape15" *ngIf="data.shapeHide"><img src="assets/img/shape/banner-shape16.png" alt="image"></div>
+    <div class="banner-shape16" *ngIf="data.shapeHide"><img src="assets/img/shape/banner-shape17.png" alt="image"></div>
+    <div class="banner-shape17" *ngIf="data.shapeHide"><img src="assets/img/shape/banner-shape18.png" alt="image"></div>
+    <div class="banner-shape18" *ngIf="data.shapeHide"><img src="assets/img/shape/banner-shape19.png" alt="image"></div>
+</div>

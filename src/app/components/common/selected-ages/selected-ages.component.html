@@ -1,0 +1,25 @@
+<div class="selected-ages-area pt-100 pb-70" *ngIf="data">
+    <div class="container">
+        <div class="section-title">
+            <span class="sub-title">{{data.subtitle}}</span>
+            <h2 class="font-weight-black">{{data.title}}</h2>
+            <p>{{data.paragraph}}</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 col-md-6" *ngFor="let content of data.allClass;">
+                <div class="single-selected-ages-box">
+                    <div class="image">
+                        <img [src]="content.image.url" alt="image">
+                    </div>
+                    <div class="content">
+                        <h3>{{content.title}}</h3>
+                        <p>{{content.paragraph}}</p>
+                        <span class="ages-number">{{content.subText}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kindergarten-shape15"><img src="assets/img/kindergarten-shape/k-shape15.png" alt="image"></div>
+    <div class="kindergarten-shape16"><img src="assets/img/kindergarten-shape/k-shape16.png" alt="image"></div>
+</div>

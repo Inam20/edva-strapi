@@ -1,0 +1,13 @@
+<div class="video-box" *ngIf="data">
+    <div class="image">
+        <img [src]="data.image.url" class="shadow" alt="image">
+    </div>
+    <a
+        href="{{data.videoLink}}"
+        target="_blank"
+        class="video-btn popup-youtube"
+    >
+        <i class="flaticon-play"></i>
+    </a>
+    <div class="shape10" *ngIf="data.shapeHide"><img src="assets/img/shape/shape9.png" alt="image"></div>
+</div>

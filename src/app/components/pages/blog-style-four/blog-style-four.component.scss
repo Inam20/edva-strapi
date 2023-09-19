@@ -1,0 +1,9 @@
+@import "../../common/blog/blog.component.scss";
+
+.pagination-area {
+    text-align: start !important;
+    margin: {
+        left: -5px;
+        top: 5px;
+    };
+}

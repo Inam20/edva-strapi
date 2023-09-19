@@ -1,0 +1,33 @@
+<div class="subscribe-area bg-eee8df ptb-70" *ngIf="data">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="subscribe-image" *ngIf="data.kindergartenImage">
+                    <img [src]="data.kindergartenImage.url" alt="image">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="subscribe-content text-start">
+                    <h2 class="font-weight-black">{{data.title}}</h2>
+                    <p>{{data.desc}}</p>
+                    <form class="newsletter-form" [formGroup]="subscribeForm" (ngSubmit)="onSubmit()">
+                        <input type="text" class="input-newsletter" placeholder="Enter your email address" formControlName="email">
+                        <button
+                            type="submit"
+                            class="default-btn"
+                            [disabled]="
+                                !subscribeForm.valid
+                            "
+                        >
+                            <i class="flaticon-user"></i>
+                            Subscribe Now
+                            <span></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kindergarten-shape19"><img src="assets/img/kindergarten-shape/k-shape19.png" alt="image"></div>
+    <div class="kindergarten-shape20"><img src="assets/img/kindergarten-shape/k-shape20.png" alt="image"></div>
+</div>

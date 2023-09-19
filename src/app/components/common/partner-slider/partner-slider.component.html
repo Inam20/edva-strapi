@@ -1,0 +1,9 @@
+<div class="partner-slides" *ngIf="data">
+    <owl-carousel-o [options]="partnerSlides">
+        <ng-template carouselSlide *ngFor="let item of data.partnerSliderLists;">
+            <div class="partner-item">
+                <img [src]="item.image.url" alt="image">
+            </div>
+        </ng-template>
+    </owl-carousel-o>
+</div>

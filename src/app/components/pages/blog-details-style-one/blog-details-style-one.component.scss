@@ -1,0 +1,107 @@
+.blog-details-area {
+    border-top: 1px solid #eeeeee;
+}
+.blog-details-desc {
+    .article-image {
+        img {
+            width: 100%;
+        }
+    }
+    .article-meta {
+        margin-top: 30px;
+
+        .entry-meta {
+            margin-bottom: 20px;
+
+            ul {
+                padding-left: 0;
+                margin-bottom: 0;
+                list-style-type: none;
+    
+                li {
+                    margin-right: 20px;
+                    position: relative;
+                    display: inline-block;
+                    border-right: 1px solid #eeeeee;
+                    font: {
+                        weight: 600;
+                        size: var(--fontSize);
+                    };
+                    padding: {
+                        right: 20px;
+                        left: 45px;
+                    };
+                    i {
+                        font-size: 32px;
+                        color: #cfcfcf;
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                    span {
+                        display: block;
+                        color: var(--mainColor);
+                        text-transform: uppercase;
+                        margin-bottom: 2px;
+                        font: {
+                            size: 14px;
+                            weight: 600;
+                        };
+                    }
+                    a {
+                        display: inline-block;
+                        font: {
+                            size: var(--fontSize);
+                        };
+                    }
+                    &:last-child {
+                        padding-right: 0;
+                        margin-right: 0;
+                        border-right: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .blog-details-desc {
+        .article-meta {
+            .entry-meta {
+                ul {
+                    margin-bottom: -13px;
+
+                    li {
+                        display: inline-block;
+                        border-right: none;
+                        font-size: 15px;
+                        margin: {
+                            bottom: 13px;
+                            right: 13px;
+                        };
+                        padding: {
+                            right: 0;
+                        };
+                        &:last-child {
+                            margin: {
+                                right: 0;
+                            };
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {}
+
+@media only screen and (min-width: 1200px) and (max-width: 1355px) {}

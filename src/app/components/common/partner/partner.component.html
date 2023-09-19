@@ -1,0 +1,7 @@
+<div class="row align-items-center" *ngIf="data">
+    <div class="col-lg-2 col-6 col-sm-3 col-md-3" *ngFor="let item of data.partnerLists;">
+        <div class="single-partner-item">
+            <img [src]="item.image.url" alt="image">
+        </div>
+    </div>
+</div>

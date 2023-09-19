@@ -1,0 +1,30 @@
+<div class="kindergarten-services-area bg-f7ebeb pt-100" *ngIf="data">
+    <div class="container">
+        <div class="section-title">
+            <span class="sub-title">{{data.subtitle}}</span>
+            <h2 class="font-weight-black">{{data.title}}</h2>
+            <p>{{data.paragraph}}</p>
+        </div>
+        <div class="services-slides">
+            <owl-carousel-o [options]="servicesSlides">
+                <ng-template carouselSlide *ngFor="let content of data.allServices">
+                    <div class="single-kindergarten-services-box">
+                        <img src="assets/img/shape/box-shape1.png" alt="image">
+                        <div class="content">
+                            <div class="icon">
+                                <i class="{{content.icon}}"></i>
+                            </div>
+                            <h3 class="font-weight-black">{{content.title}}</h3>
+                            <p>{{content.paragraph}}</p>
+                        </div>
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+        <div class="kids-kite-image">
+            <img [src]="data.image.url" alt="image">
+        </div>
+    </div>
+    <div class="kindergarten-shape9"><img src="assets/img/kindergarten-shape/k-shape9.png" alt="image"></div>
+    <div class="kindergarten-shape10"><img src="assets/img/kindergarten-shape/k-shape10.png" alt="image"></div>
+</div>

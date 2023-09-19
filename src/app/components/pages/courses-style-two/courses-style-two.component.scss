@@ -1,0 +1,11 @@
+@import "../../common/courses/courses.component.scss";
+
+.single-courses-box {
+    &.without-boxshadow {
+        box-shadow: unset !important;
+        
+        .courses-content {
+            padding-bottom: 0;
+        }   
+    }
+}

@@ -1,0 +1,20 @@
+<div class="hero-banner-area" *ngIf="data">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="hero-banner-content">
+                    <h1>{{data.title}}</h1>
+                    <p>{{data.desc}}</p>
+                    <a routerLink="{{data.buttonLink}}" class="default-btn"><i class="{{data.buttonIcon}}"></i>{{data.buttonText}}<span></span></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="hero-banner-image">
+                    <img [src]="data.image.url" alt="image">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner-shape19" *ngIf="data.shapeHide"><img src="assets/img/shape/banner-shape20.png" alt="image"></div>
+    <div class="divider"></div>
+</div>

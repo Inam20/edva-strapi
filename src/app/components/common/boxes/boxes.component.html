@@ -1,0 +1,21 @@
+<div class="boxes-area boxes-style-two bg-f5f7fa" *ngIf="data">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-sm-6 col-md-6" *ngFor="let content of data.bannerBottomBoxes.slice(0, 3)">
+                <div class="single-box-item">
+                    <div class="image">
+                        <img [src]="content.image.url" alt="image">
+                    </div>
+                    <h3>{{content.title}}</h3>
+                    <p>{{content.desc}}</p>
+                    <a routerLink="{{content.link}}" class="link-btn">{{content.linkText}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="boxes-info">
+            <div markdown ngPreserveWhitespaces>
+                {{data.bannerBottomBoxesText}}
+            </div>
+        </div>
+    </div>
+</div>

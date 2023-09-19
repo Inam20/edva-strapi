@@ -1,0 +1,43 @@
+<div class="courses-area pt-100 pb-70">
+    <div class="container">
+        <div class="section-title">
+            <span class="sub-title">Learn At Your Own Pace</span>
+            <h2 class="font-weight-black">Edva's Recent Courses</h2>
+            <p>Explore all of our courses and pick your suitable ones to enroll and start learning with us! We ensure that you will never regret it!</p>
+        </div>
+        <div class="courses-slides-two">
+            <owl-carousel-o [options]="coursesSlides" *ngIf="data">
+                <ng-template carouselSlide *ngFor="let content of data.slice(0, 6)">
+                    <div class="single-kindergarten-courses-box">
+                        <div class="courses-image">
+                            <div class="image">
+                                <img [src]="content.image.url" alt="image">
+                            </div>
+                            <div class="price"><img src="assets/img/shape/price-bg.png" alt="image"><span>${{content.price}}</span></div>
+                            <a
+                                [routerLink]="['/course', content.slug]"
+                                class="link-btn"
+                            ></a>
+                        </div>
+                        <div class="courses-content">
+                            <div class="course-author d-flex align-items-center">
+                                <img src="assets/img/avatar.jpg" class="rounded-circle" alt="image">
+                                <span *ngIf="content.admin_user">{{content.admin_user.firstname}} {{content.admin_user.lastname}}</span>
+                            </div>
+                            <h3 class="font-weight-black">
+                                <a
+                                    [routerLink]="['/course', content.slug]"
+                                >
+                                    {{content.title}}
+                                </a>
+                            </h3>
+                            <p>{{content.shortDesc}}</p>
+                        </div>
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+    </div>
+    <div class="kindergarten-shape11"><img src="assets/img/kindergarten-shape/k-shape11.png" alt="image"></div>
+    <div class="kindergarten-shape12"><img src="assets/img/kindergarten-shape/k-shape12.png" alt="image"></div>
+</div>

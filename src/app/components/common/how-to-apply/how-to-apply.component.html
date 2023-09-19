@@ -1,0 +1,26 @@
+<div class="information-area ptb-100" *ngIf="data">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="information-content">
+                    <span class="sub-title">{{data.subtitle}}</span>
+                    <h2>{{data.title}}</h2>
+                    <ul class="apply-details">
+                        <li *ngFor="let content of data.applyLists">
+                            <div class="icon">
+                                <i class="{{content.icon}}"></i>
+                            </div>
+                            <h3>{{content.title}}</h3>
+                            <p>{{content.paragraph}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="information-image text-center">
+                    <img [src]="data.image.url" alt="image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

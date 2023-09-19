@@ -1,0 +1,89 @@
+<div *ngIf="data">
+
+    <div class="page-title-area">
+        <div class="container">
+            <div class="page-title-content">
+                <ul>
+                    <li><a routerLink="/">Home</a></li>
+                    <li>{{data.pageBannerTitle}}</li>
+                </ul>
+                <h2>{{data.pageBannerTitle}}</h2>
+            </div>
+        </div>
+        <div class="shape9"><img src="assets/img/shape/shape8.svg" alt="image"></div>
+    </div>
+    
+    <div class="contact-area ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="contact-info">
+                        <span class="sub-title">{{data.subtitle}}</span>
+                        <h2>{{data.title}}</h2>
+                        <p>{{data.desc}}</p>
+                        <ul>
+                            <li *ngFor="let item of data.contactInfo;">
+                                <div class="icon">
+                                    <i class='{{item.icon}}'></i>
+                                </div>
+                                <h3>{{item.title}}</h3>
+                                <p *ngIf="item.location">{{item.location}}</p>
+                                <p *ngIf="item.phoneNumber">Mobile: <a href="tel:{{item.phoneNumber}}">{{item.phoneNumber}}</a></p>
+                                <p *ngIf="item.email">Mail: <a href="mailto:{{item.email}}">{{item.email}}</a></p>
+                                <p *ngIf="item.hoursOfOperation1">{{item.hoursOfOperation1}}</p>
+                                <p *ngIf="item.hoursOfOperation2">{{item.hoursOfOperation2}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="contact-form" style="background-image: url({{data.formBgImage.url}});">
+                        <h2>{{data.formTitle}}</h2>
+                        <p>{{data.subText}}</p>
+                        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Your name" formControlName="name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Your email address" formControlName="email">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Your phone number" formControlName="phoneNumber">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <textarea cols="30" rows="5" class="form-control" placeholder="Write your message..." formControlName="message"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12">
+                                    <button
+                                        type="submit"
+                                        class="default-btn"
+                                        [disabled]="
+                                            !contactForm.valid
+                                        "
+                                    >
+                                        Send Message
+                                        <span></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d260370.4624153429!2d-74.21074577271956!3d40.67735855419542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25090129c363d%3A0x40c6a5770d25022b!2sStatue%20of%20Liberty%20National%20Monument!5e0!3m2!1sen!2sbd!4v1599386259810!5m2!1sen!2sbd"></iframe>
+    </div>
+
+</div>

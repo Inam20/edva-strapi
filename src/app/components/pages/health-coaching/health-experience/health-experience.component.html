@@ -1,0 +1,35 @@
+<div class="experience-area ptb-100" *ngIf="data">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="experience-content">
+                    <div class="shape">
+                        <img [src]="data.shapeImage.url" alt="image">
+                    </div>
+                    <span class="sub-title">{{data.subtitle}}</span>
+                    <h2 class="playfair-display-font">{{data.title}}</h2>
+                    <p>{{data.paragraph}}</p>
+                    <ul class="features-list">
+                        <li *ngFor="let item of data.allExperience">
+                            <i class="{{item.icon}}"></i> 
+                            {{item.title}}
+                        </li>
+                    </ul>
+                    <a routerLink="{{data.buttonLink}}" class="default-btn">
+                        <i class="{{data.buttonIcon}}"></i>
+                        {{data.buttonText}}
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="experience-img">
+                    <img [src]="data.image.url" alt="image">
+                    <span class="title">{{data.subText}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="experience-shape1"><img src="assets/img/shape/experience-shape1.png" alt="image"></div>
+    <div class="experience-shape2"><img src="assets/img/shape/experience-shape2.png" alt="image"></div>
+</div>

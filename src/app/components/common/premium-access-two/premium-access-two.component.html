@@ -1,0 +1,20 @@
+<div class="premium-access-area bg-f9f9f9 ptb-100" *ngIf="data">
+    <div class="container">
+        <div class="premium-access-content">
+            <span class="sub-title">{{data.subtitle}}</span>
+            <h2>{{data.title}}</h2>
+            <p>{{data.paragraph}}</p>
+            <a
+                routerLink="{{data.buttonLink}}"
+                class="default-btn"
+            >
+                <i class="{{data.buttonIcon}}"></i>
+                {{data.buttonText}}
+                <span></span>
+            </a>
+        </div>
+    </div>
+    <div class="shape3" *ngIf="data.shapeHide"><img src="assets/img/shape/shape3.png" alt="image"></div>
+    <div class="shape4" *ngIf="data.shapeHide"><img src="assets/img/shape/shape4.png" alt="image"></div>
+    <div class="shape8" *ngIf="data.shapeHide"><img src="assets/img/shape/shape7.png" alt="image"></div>
+</div>

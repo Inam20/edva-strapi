@@ -1,0 +1,15 @@
+<div class="container" *ngIf="data">
+    <div class="premium-access-content">
+        <span class="sub-title">{{data.subtitle}}</span>
+        <h2>{{data.title}}</h2>
+        <p>{{data.paragraph}}</p>
+        <a
+            routerLink="{{data.buttonLink}}"
+            class="default-btn"
+        >
+            <i class="{{data.buttonIcon}}"></i>
+            {{data.buttonText}}
+            <span></span>
+        </a>
+    </div>
+</div>

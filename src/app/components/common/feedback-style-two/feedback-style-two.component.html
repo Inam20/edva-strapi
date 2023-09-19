@@ -1,0 +1,23 @@
+<div class="feedback-area bg-6ba292 ptb-100" *ngIf="data">
+    <div class="container">
+        <div class="feedback-slides-two">
+            <owl-carousel-o [options]="feedbackSlides">
+                <ng-template carouselSlide *ngFor="let content of data.allFeedback">
+                    <div class="single-feedback-box">
+                        <p>{{content.feedbackQuote}}</p>
+                        <div class="client-info d-flex align-items-center">
+                            <img [src]="content.authorImage.url" class="rounded-circle" alt="image">
+                            <div class="title">
+                                <h3>{{content.authorName}}</h3>
+                                <span>{{content.authorDesignation}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+    </div>
+    <div class="divider2"></div>
+    <div class="divider3"></div>
+    <div class="tree-shape" *ngIf="data.shapeHide"><img src="assets/img/shape/tree-shape.png" alt="image"></div>
+</div>

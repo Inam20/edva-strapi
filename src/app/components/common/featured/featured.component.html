@@ -1,0 +1,16 @@
+<div class="featured-area" *ngIf="data">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let content of data.bannerBottomBoxes.slice(0, 3)">
+                <div class="single-featured-box">
+                    <img [src]="content.image.url" alt="image">
+                    <div class="content">
+                        <i class="icon {{content.icon}}"></i>
+                        <h3>{{content.title}}</h3>
+                        <p>{{content.desc}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

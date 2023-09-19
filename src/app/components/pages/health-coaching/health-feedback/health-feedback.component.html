@@ -1,0 +1,32 @@
+<div class="health-coaching-feedback-area" *ngIf="data">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="health-coaching-feedback-image">
+                    <img [src]="data.image.url" alt="image">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="health-coaching-inner">
+                    <h2 class="playfair-display-font">{{data.sectionTitle}}</h2>
+                    <div class="feedback-quote">
+                        <p>{{data.quoteText}}</p>
+                        <div class="client-info">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <img [src]="data.authorImage.url" alt="image">
+                                <div class="title">
+                                    <h3>{{data.name}}</h3>
+                                    <span>{{data.designation}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="object1"><img src="assets/img/shape/object1.png" alt="image"></div>
+                        <div class="object2"><img src="assets/img/shape/object2.png" alt="image"></div>
+                        <div class="object3"><img src="assets/img/shape/object3.png" alt="image"></div>
+                        <div class="object4"><img src="assets/img/shape/object4.png" alt="image"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

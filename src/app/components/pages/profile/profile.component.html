@@ -1,0 +1,126 @@
+<div class="page-title-area">
+    <div class="container">
+        <div class="page-title-content">
+            <ul>
+                <li><a routerLink="/">Home</a></li>
+                <li>Profile</li>
+            </ul>
+            <h2>Profile</h2>
+        </div>
+    </div>
+    <div class="shape9"><img src="assets/img/shape/shape8.svg" alt="image"></div>
+</div>
+
+<div *ngIf="!isLoggedIn" class="login-area ptb-100">
+    <div class="container text-center">
+        <a
+            routerLink="/profile-authentication"
+            class="default-btn"
+        >
+            <i class="flaticon-user"></i>
+            Please login to continue
+            <span></span>
+        </a>
+    </div>
+</div>
+
+<div *ngIf="isLoggedIn" class="profile-area ptb-100">
+    <div class="container">
+        <div class="profile-box">
+            <div class="row align-items-center">
+                <div class="col-lg-4 col-md-4">
+                    <div class="image">
+                        <img src="assets/img/avatar.jpg" alt="image">
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8">
+                    <div class="content">
+                        <h3>{{userData.username}}</h3>
+                        <p>{{userData.biography}}</p>
+                        <ul class="info">
+                            <li><span>Email:</span> <a href="mailto:{{userData.email}}">{{userData.email}}</a></li>
+                            <li *ngIf="userData.phoneNumber"><span>Phone Number:</span> <a href="tel:{{userData.phoneNumber}}">{{userData.phoneNumber}}</a></li>
+                        </ul>
+                        <ul class="social-link">
+                            <li *ngIf="userData.facebook">
+                                <a href="{{userData.facebook}}" class="d-block" target="_blank">
+                                    <i class='bx bxl-facebook'></i>
+                                </a>
+                            </li>
+                            <li *ngIf="userData.twitter">
+                                <a href="{{userData.twitter}}" class="d-block" target="_blank">
+                                    <i class='bx bxl-twitter'></i>
+                                </a>
+                            </li>
+                            <li *ngIf="userData.instagram">
+                                <a href="{{userData.instagram}}" class="d-block" target="_blank">
+                                    <i class='bx bxl-instagram'></i>
+                                </a>
+                            </li>
+                            <li *ngIf="userData.linkedin">
+                                <a href="{{userData.linkedin}}" class="d-block" target="_blank">
+                                    <i class='bx bxl-linkedin'></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <a
+                            routerLink="/update-profile"
+                            class="default-btn"
+                        >
+                            Edit Profile
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="profile-courses-quizzes">
+            <h2>My Courses</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Course</th>
+                            <th scope="col">Payment</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let order of userOrders;">
+                            <td class="product-price">
+                                #{{order.id}}
+                            </td>
+                            <td>
+                                <table class="table mb-0">
+                                    <tr *ngFor="let course of order.courses">
+                                        <td class="product-thumbnail">
+                                            <a [routerLink]="['/profile/my-course', course.slug]">
+                                                <img
+                                                    [src]="course.image.url" alt="Image"
+                                                />
+                                                <span>
+                                                    {{course.title}}
+                                                </span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class="product-price success">
+                                {{order.payment}}
+                            </td>
+                            <td class="product-subtotal">
+                                ${{order.totalPrice}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div *ngIf="userOrders?.length < 1">
+                <br>
+                <p>There is no courses!</p>
+            </div>
+        </div>
+    </div>
+</div>

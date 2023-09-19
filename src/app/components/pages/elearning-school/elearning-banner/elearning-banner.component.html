@@ -1,0 +1,65 @@
+<div class="main-banner" *ngFor="let Image of bgImage;" style="background-image: url({{Image.img}});">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="main-banner-content" *ngIf="data">
+                    <h1>{{data.title}}</h1>
+                    <p>{{data.paragraph}}</p>
+                    <a routerLink="{{data.buttonLink}}" class="default-btn">
+                        <i class="{{data.buttonIcon}}"></i>
+                        {{data.buttonText}}
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="main-banner-courses-list" *ngIf="courseData">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6" *ngFor="let content of courseData.slice(0, 2);">
+                            <div class="single-courses-box">
+                                <div class="courses-image">
+                                    <a
+                                        [routerLink]="['/course', content.slug]"
+                                        class="d-block image"
+                                    >
+                                        <img [src]="content.image.url" alt="image">
+                                    </a>
+                                    <div class="price shadow">${{content.price}}</div>
+                                    <button 
+                                        type="submit" 
+                                        class="default-btn"
+                                        (click)="addToCart(content)"
+                                    >
+                                        Add To Cart
+                                        <span></span>
+                                    </button>
+                                </div>
+                                <div class="courses-content">
+                                    <div class="course-author d-flex align-items-center">
+                                        <img src="assets/img/avatar.jpg" class="rounded-circle" alt="image">
+                                        <span *ngIf="content.admin_user">{{content.admin_user.firstname}} {{content.admin_user.lastname}}</span>
+                                    </div>
+                                    <h3>
+                                        <a
+                                            [routerLink]="['/course', content.slug]"
+                                        >
+                                            {{content.title}}
+                                        </a>
+                                    </h3>
+                                    <p>{{content.shortDesc}}</p>
+                                    <ul class="courses-box-footer d-flex justify-content-between align-items-center">
+                                        <li *ngIf="content.numberOfLesson"><i class='flaticon-agenda'></i> {{content.numberOfLesson}} Lessons</li>
+                                        <li *ngIf="content.numberOfStudent"><i class='flaticon-people'></i> {{content.numberOfStudent}} Students</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner-shape1"><img src="assets/img/shape/banner-shape1.png" alt="image"></div>
+                    <div class="banner-shape2"><img src="assets/img/shape/banner-shape2.png" alt="image"></div>
+                    <div class="banner-shape3"><img src="assets/img/shape/banner-shape3.png" alt="image"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="view-all-courses-area bg-fef8ef" *ngIf="data">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="view-all-courses-content">
+                    <span class="sub-title">{{data.subtitle}}</span>
+                    <h2>{{data.title}}</h2>
+                    <p>{{data.paragraph}}</p>
+                    <a
+                        routerLink="{{data.buttonLink}}"
+                        class="default-btn"
+                    >
+                        <i class="{{data.buttonIcon}}"></i>
+                        {{data.buttonText}}
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="view-all-courses-image">
+                    <img [src]="data.image1.url" alt="image">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shape1" *ngIf="data.shapeHide"><img src="assets/img/shape/shape1.png" alt="image"></div>
+    <div class="shape9" *ngIf="data.shapeHide"><img src="assets/img/shape/shape8.svg" alt="image"></div>
+</div>

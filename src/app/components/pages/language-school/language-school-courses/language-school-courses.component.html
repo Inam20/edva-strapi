@@ -1,0 +1,26 @@
+<div class="courses-area pt-100 pb-70 bg-f5f7fa" *ngIf="data">
+    <div class="container">
+        <div class="section-title">
+            <span class="sub-title">{{data.subtitle}}</span>
+            <h2>{{data.title}}</h2>
+            <p>{{data.paragraph}}</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let content of data.courseType;">
+                <div class="single-language-courses-box">
+                    <img [src]="content.image.url" alt="image">
+                    <h3>{{content.title}}</h3>
+                    <p>{{content.paragraph}}</p>
+                    <a
+                        routerLink="{{content.link}}"
+                        class="default-btn"
+                    >
+                        <i class="{{content.icon}}"></i>
+                        {{content.linkText}}
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

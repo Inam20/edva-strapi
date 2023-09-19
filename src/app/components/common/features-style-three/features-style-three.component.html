@@ -1,0 +1,24 @@
+<div class="features-area pt-100 pb-70 bg-fff8f8" *ngIf="data">
+    <div class="container">
+        <div class="section-title">
+            <span class="sub-title">{{data.subtitle}}</span>
+            <h2>{{data.title}}​</h2>
+            <p>{{data.paragraph}}</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-sm-6 col-md-6" *ngFor="let content of data.featuresCard">
+                <div class="features-box">
+                    <div class="icon">
+                        <i class="{{content.icon}}"></i>
+                    </div>
+                    <h3>{{content.title}}</h3>
+                    <p>{{content.paragraph}}</p>
+                    <a routerLink="{{content.link}}" class="link-btn">{{content.linkText}}</a>
+                    <div class="back-icon">
+                        <i class="{{content.icon}}"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

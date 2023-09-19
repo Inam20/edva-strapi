@@ -1,0 +1,48 @@
+<div class="courses-area pb-70">
+    <div class="container">
+        <div class="section-title">
+            <span class="sub-title">Go at your own pace</span>
+            <h2 class="playfair-display-font">Recent Courses From Yoga Teacher</h2>
+            <p>Explore all of our courses and pick your suitable ones to enroll and start learning with us! We ensure that you will never regret it!</p>
+        </div>
+        <div class="row justify-content-center" *ngIf="data">
+            <div class="col-lg-4 col-md-6" *ngFor="let content of data.slice(0, 3)">
+                <div class="single-yoga-courses-box">
+                    <div class="courses-image">
+                        <a
+                            [routerLink]="['/course', content.slug]"
+                            class="d-block"
+                        >
+                            <img [src]="content.image.url" alt="image">
+                        </a>
+                        <button 
+                            type="submit" 
+                            class="default-btn"
+                            (click)="addToCart(content)"
+                        >
+                            Add To Cart
+                            <span></span>
+                        </button>
+                    </div>
+                    <div class="courses-content">
+                        <h3 class="playfair-display-font">
+                            <a
+                                [routerLink]="['/course', content.slug]"
+                            >
+                                {{content.title}}
+                            </a>
+                        </h3>
+                        <p>{{content.shortDesc}}</p>
+                        <a
+                            [routerLink]="['/course', content.slug]"
+                            class="default-btn"
+                        >
+                            View Details
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="program-area ptb-100" *ngIf="data" style="background-image: url({{data.bgImage.url}});">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="program-section-title">
+                    <h2 class="playfair-display-font">{{data.title}}</h2>
+                    <p>{{data.paragraph}}</p>
+                    <a
+                        routerLink="{{data.buttonLink}}"
+                        class="default-btn"
+                    >
+                        <i class="{{data.buttonIcon}}"></i>
+                        {{data.buttonText}}
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="program-list">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-lg-6 col-md-6" *ngFor="let content of data.programLists;">
+                            <div class="single-program-box">
+                                <div class="shape">
+                                    <img [src]="content.image.url" alt="image">
+                                </div>
+                                <div class="icon">
+                                    <i class="{{content.icon}}"></i>
+                                </div>
+                                <h3 class="playfair-display-font">
+                                    <a routerLink="{{content.link}}">
+                                        {{content.title}}
+                                    </a>
+                                </h3>
+                                <p>{{content.paragraph}}</p>
+                                <a routerLink="{{content.link}}" class="link-btn">{{content.linkText}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="program-circle-shape"><img src="assets/img/shape/circle-shape.png" alt="image"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

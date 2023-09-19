@@ -1,0 +1,39 @@
+<div class="blog-area pt-100 pb-70">
+    <div class="container">
+        <div class="section-title" *ngIf="blogData">
+            <span class="sub-title">{{blogData.subtitle}}</span>
+            <h2 class="font-weight-black">{{blogData.title}}</h2>
+            <p>{{blogData.paragraph}}</p>
+        </div>
+        <div class="row justify-content-center" *ngIf="data">
+            <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let content of data.slice(0, 3)">
+                <div class="single-blog-item">
+                    <div class="post-image">
+                        <a
+                            [routerLink]="['/blog', content.slug]"
+                            class="d-block"
+                        >
+                            <img [src]="content.image.url" alt="image">
+                        </a>
+                        <a [routerLink]="['/blog', content.slug]" class="link-btn"></a>
+                    </div>
+                    <div class="post-content">
+                        <a
+                            [routerLink]="['/category', content.blog_category.slug]"
+                            class="category"
+                        >
+                            {{content.blog_category.title}}
+                        </a>
+                        <h3 class="font-weight-black">
+                            <a 
+                                [routerLink]="['/blog', content.slug]"
+                            >
+                                {{content.title}}
+                            </a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

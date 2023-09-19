@@ -1,0 +1,31 @@
+<div class="get-instant-courses-area" *ngIf="data">
+    <div class="container">
+        <div class="get-instant-courses-inner-area">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-md-12">
+                    <div class="get-instant-courses-content">
+                        <span class="sub-title">{{data.subtitle}}</span>
+                        <h2>{{data.title}}</h2>
+                        <p>{{data.paragraph}}</p>
+                        <a
+                            routerLink="{{data.buttonLink}}"
+                            class="default-btn"
+                        >
+                            <i class="{{data.buttonIcon}}"></i>
+                            {{data.buttonText}}
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="get-instant-courses-image">
+                        <img [src]="data.image1.url" alt="image">
+                        <div class="shape7" *ngIf="data.shapeHide"><img src="assets/img/shape/shape4.png" alt="image"></div>
+                        <div class="shape6" *ngIf="data.shapeHide"><img src="assets/img/shape/shape6.png" alt="image"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="shape5" *ngIf="data.shapeHide"><img src="assets/img/shape/shape5.png" alt="image"></div>
+        </div>
+    </div>
+</div>

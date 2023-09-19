@@ -1,0 +1,39 @@
+<div *ngIf="!isLoggedIn" class="free-trial-area ptb-100 bg-fffaf3">
+    <div class="container" *ngIf="data">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="free-trial-image text-center">
+                    <img [src]="data.image.url" alt="image">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="free-trial-form">
+                    <span class="sub-title">{{data.subtitle}}</span>
+                    <h2>{{data.title}}</h2>
+                    <form 
+                        [formGroup]="regForm" 
+                        (ngSubmit)="onRegister()" 
+                    >
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name *" formControlName="username">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email *" formControlName="email">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Phone *">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Your Password *" formControlName="password">
+                        </div>
+                        <button type="submit">Register Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isLoggedIn">
+    <hr>
+</div>

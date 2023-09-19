@@ -1,0 +1,19 @@
+<div class="subscribe-content" *ngIf="data">
+    <span class="sub-title">{{data.subtitle}}</span>
+    <h2>{{data.title}}</h2>
+    <p>{{data.desc}}</p>
+    <form class="newsletter-form" [formGroup]="subscribeForm" (ngSubmit)="onSubmit()">
+        <input type="text" class="input-newsletter" placeholder="Enter your email address" formControlName="email">
+        <button
+            type="submit"
+            class="default-btn"
+            [disabled]="
+                !subscribeForm.valid
+            "
+        >
+            <i class="flaticon-user"></i>
+            Subscribe Now
+            <span></span>
+        </button>
+    </form>
+</div>

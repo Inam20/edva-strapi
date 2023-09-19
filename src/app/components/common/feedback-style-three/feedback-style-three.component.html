@@ -1,0 +1,17 @@
+<div class="gym-feedback-area ptb-100" *ngIf="data" style="background-image: url({{data.bgImage.url}});">
+    <div class="container-fluid">
+        <div class="gym-feedback-slides">
+            <owl-carousel-o [options]="gymFeedbackSlides">
+                <ng-template carouselSlide *ngFor="let content of data.allFeedback">
+                    <div class="gym-feedback-box">
+                        <p>{{content.feedbackQuote}}</p>
+                        <div class="title">
+                            <h3>{{content.authorName}}</h3>
+                            <span>{{content.authorDesignation}}</span>
+                        </div>
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+    </div>
+</div>

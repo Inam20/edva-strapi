@@ -1,0 +1,37 @@
+<div class="experience-area ptb-100 extra-padding" *ngIf="data">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="experience-content">
+                    <span class="sub-title">{{data.subtitle}}</span>
+                    <h2 class="playfair-display-font">{{data.title}}</h2>
+                    <p>{{data.paragraph}}</p>
+                    <ul class="features-list">
+                        <li *ngFor="let item of data.allExperience">
+                            <i class="{{item.icon}}"></i> 
+                            {{item.title}}
+                        </li>
+                    </ul>
+                    <a routerLink="{{data.buttonLink}}" class="default-btn">
+                        <i class="{{data.buttonIcon}}"></i>
+                        {{data.buttonText}}
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="experience-image">
+                    <img [src]="data.image.url" alt="image">
+                    <a
+                        href="{{data.videoLink}}"
+                        target="_blank"
+                        class="video-btn"
+                    >
+                        <i class="flaticon-play"></i>
+                    </a>
+                    <span class="title">{{data.subText}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

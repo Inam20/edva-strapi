@@ -1,0 +1,22 @@
+<div class="main-banner-area" *ngIf="data">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="main-banner-content-style-two">
+                    <h1>{{data.title}}</h1>
+                    <p>{{data.desc}}</p>
+                    <a routerLink="{{data.buttonLink}}" class="default-btn"><i class="{{data.buttonIcon}}"></i>{{data.buttonText}}<span></span></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="main-banner-image-style-two">
+                    <img [src]="data.image.url" alt="image">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner-shape1" *ngIf="data.shapeHide"><img src="assets/img/shape/banner-shape1.png" alt="image"></div>
+    <div class="banner-shape2" *ngIf="data.shapeHide"><img src="assets/img/shape/banner-shape2.png" alt="image"></div>
+    <div class="banner-shape3" *ngIf="data.shapeHide"><img src="assets/img/shape/banner-shape3.png" alt="image"></div>
+    <div class="bulb" *ngIf="data.shapeHide"><img src="assets/img/shape/bulb.png" alt="image"></div>
+</div>

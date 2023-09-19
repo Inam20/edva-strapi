@@ -1,0 +1,125 @@
+<div class="blog-details-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12" *ngIf="data">
+                <div class="blog-details-desc" *ngFor="let content of data;">
+                    <div class="article-image">
+                        <img [src]="content.image.url" alt="blog-image">
+                    </div>
+                    <div class="article-meta">
+                        <div class="entry-meta">
+                            <ul>
+                                <li>
+                                    <i class='bx bx-folder-open'></i>
+                                    <span>Category</span>
+                                    <a
+                                        [routerLink]="['/category', content.blog_category.slug]"
+                                    >
+                                        {{content.blog_category.title}}
+                                    </a>
+                                </li>
+                                <li>
+                                    <i class='bx bx-calendar'></i>
+                                    <span>Last Updated</span>
+                                    {{content.updated_at | date}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <h3>{{content.title}}</h3>
+                        <div markdown ngPreserveWhitespaces>
+                            {{content.blogDetails}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <aside class="widget-area">
+                    <div class="widget widget_search">
+                        <h3 class="widget-title">Search</h3>
+                        <div class="search-form" [class.active]="classSearchApplied">
+                            <input type="text" [(ngModel)]="term" class="search-field" placeholder="Search blog posts..." (click)="togglSearcheClass()">
+                            <button type="submit">
+                                <i class="bx bx-search-alt"></i>
+                            </button>
+                            <div class="blog-lists" *ngIf="blogPostdata">
+                                <div class="list-group-item" *ngFor="let content of blogPostdata | filter : term">
+                                    <div class="row align-items-center" (click)="togglSearcheClass()">
+                                        <div class="col-lg-3 col-md-3">
+                                            <a 
+                                                [routerLink]="['/blog', content.slug]"
+                                                class="blog-img"
+                                            >
+                                                <img [src]="content.image.url" alt="image">
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-9 col-md-9">
+                                            <div class="info">
+                                                <h3>
+                                                    <a 
+                                                        [routerLink]="['/blog', content.slug]"
+                                                    >
+                                                        {{content.title}}
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget widget_edva_posts_thumb" *ngIf="blogPostdata">
+                        <h3 class="widget-title">Recent Posts</h3>
+                        <article class="item" *ngFor="let content of blogPostdata.slice(0, 3)">
+                            <a
+                                [routerLink]="['/blog', content.slug]"
+                                class="thumb"
+                            >
+                                <span class="fullimage cover" role="img" style="background-image: url({{content.image.url}});"></span>
+                            </a>
+                            <div class="info">
+                                <span>{{content.published_at | date}}</span>
+                                <h4 class="title usmall">
+                                    <a 
+                                        [routerLink]="['/blog', content.slug]"
+                                    >
+                                        {{content.title}}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div class="clear"></div>
+                        </article>
+                    </div>
+                    <div class="widget widget_categories" *ngIf="blogCategoriesdata">
+                        <h3 class="widget-title">Categories</h3>
+                        <ul>
+                            <li *ngFor="let content of blogCategoriesdata.slice(0, 10);">
+                                <a
+                                    [routerLink]="['/category', content.slug]"
+                                    class="d-block"
+                                >
+                                    {{content.title}}
+                                    <span class="post-count">({{content.blog_posts.length}})</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget widget_tag_cloud" *ngIf="blogTagsdata">
+                        <h3 class="widget-title">Tags</h3>
+                        <div class="tagcloud">
+                            <a
+                                *ngFor="let content of blogTagsdata;"
+                                [routerLink]="['/tag', content.slug]"
+                            >
+                                {{content.tag}}
+                                <span class="tag-link-count">({{content.blog_posts.length}})</span>
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>

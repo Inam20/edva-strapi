@@ -1,0 +1,24 @@
+<div class="container" *ngIf="data">
+    <div class="section-title">
+        <span class="sub-title">{{data.subtitle}}</span>
+        <h2>{{data.title}}</h2>
+        <p>{{data.paragraph}}</p>
+    </div>
+    <div class="testimonials-slides">
+        <owl-carousel-o [options]="testimonialsSlides">
+            <ng-template carouselSlide *ngFor="let content of data.testimonials">
+                <div class="single-testimonials-item">
+                    <img [src]="content.authorImage.url" class="client-img" alt="image">
+                    <p>{{content.feedbackQuote}}</p>
+                    <h3>{{content.authorName}}</h3>
+                    <span>{{content.authorDesignation}}</span>
+                    <div class="shape-img">
+                        <img src="assets/img/shape/shape4.png" class="shape-1" alt="image">
+                        <img src="assets/img/shape/shape14.png" class="shape-2" alt="image">
+                        <img src="assets/img/shape/shape7.png" class="shape-3" alt="image">
+                    </div>
+                </div>
+            </ng-template>
+        </owl-carousel-o>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<div class="page-title-area">
+    <div class="container">
+        <div class="page-title-content">
+            <ul>
+                <li><a routerLink="/">Home</a></li>
+                <li>Cart</li>
+            </ul>
+            <h2>Cart</h2>
+        </div>
+    </div>
+    <div class="shape9"><img src="assets/img/shape/shape8.svg" alt="image"></div>
+</div>
+
+<div class="cart-area ptb-100">
+    <div class="container">
+        <div class="empty-cart" *ngIf="(courses.length == 0); else cartForm">
+            <p>Your cart is currently empty.</p>
+            <a
+                routerLink="/courses-1"
+                class="default-btn"
+            >
+                Return to Courses
+                <span></span>
+            </a>
+        </div>
+        <ng-template #cartForm>
+            <form>
+                <div class="cart-table table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Action</th>
+                                <th scope="col">Course</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let course of courses;">
+                                <td class="product-subtotal">
+                                    <button
+                                        (click)="onDeleteItem(course.id)"
+                                        class="remove"
+                                    >
+                                        <i class='bx bx-trash'></i>
+                                    </button>
+                                </td>
+                                <td class="product-thumbnail">
+                                    <a
+                                        [routerLink]="['/course', course.slug]"
+                                    >
+                                        <img [src]="course.image.url" alt="item">
+                                    </a>
+                                </td>
+                                <td class="product-name">
+                                    <a
+                                        [routerLink]="['/course', course.slug]"
+                                    >
+                                        {{course.title}}
+                                    </a>
+                                </td>
+                                <td class="product-price">
+                                    <span class="unit-amount">
+                                        ${{
+                                            (
+                                                course.quantity *
+                                                course.price
+                                            ).toFixed(2)
+                                        }}
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cart-totals">
+                    <ul>
+                        <li>Total <span>${{total}}</span></li>
+                    </ul>
+                    <a
+                        routerLink="/courses-checkout"
+                        class="default-btn"
+                    >
+                        <i class="flaticon-shopping-cart"></i>
+                        Proceed to Checkout
+                        <span></span>
+                    </a>
+                </div>
+            </form>
+        </ng-template>
+    </div>
+</div>

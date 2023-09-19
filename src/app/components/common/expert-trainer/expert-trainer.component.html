@@ -1,0 +1,31 @@
+<div class="trainer-area pt-100 pb-70" *ngIf="data">
+    <div class="container">
+        <div class="section-title">
+            <span class="sub-title">{{data.subtitle}}</span>
+            <h2>{{data.title}}</h2>
+            <p>{{data.paragraph}}</p>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="trainer-slides">
+            <owl-carousel-o [options]="trainerSlides">
+                <ng-template carouselSlide *ngFor="let content of data.allTrainers;">
+                    <div class="single-trainer-box">
+                        <img [src]="content.image.url" alt="image">
+                        <span class="designation">{{content.designation}}</span>
+                        <div class="content">
+                            <h3>{{content.name}}</h3>
+                            <ul class="social-link">
+                                <li *ngFor="let item of content.allSocials;">
+                                    <a href="{{item.link}}" class="d-block" target="_blank">
+                                        <i class='{{item.icon}}'></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+    </div>
+</div>

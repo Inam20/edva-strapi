@@ -1,0 +1,39 @@
+<div class="about-area-three ptb-100" *ngIf="data">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 col-md-12">
+                <div class="about-content-box">
+                    <span class="sub-title">{{data.subtitle}}</span>
+                    <h2>{{data.title}}</h2>
+                    <p>{{data.paragraph}}</p>
+                    <p><strong>{{data.subText}}</strong></p>
+                    <a
+                        routerLink="{{data.buttonLink}}"
+                        class="default-btn"
+                    >
+                        <i class="{{data.buttonIcon}}"></i>
+                        {{data.buttonText}}
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-12">
+                <div class="about-img">
+                    <div class="image">
+                        <img [src]="data.image1.url" alt="image">
+                        <img [src]="data.image2.url" alt="image">
+                    </div>
+                    <div class="shape17" *ngIf="data.shapeHide"><img src="assets/img/shape/shape16.png" alt="image"></div>
+                    <div class="shape18" *ngIf="data.shapeHide"><img src="assets/img/shape/shape17.png" alt="image"></div>
+                    <div class="shape19" *ngIf="data.shapeHide"><img src="assets/img/shape/shape18.png" alt="image"></div>
+                    <div class="shape20" *ngIf="data.shapeHide"><img src="assets/img/shape/shape19.png" alt="image"></div>
+                    <div class="shape21" *ngIf="data.shapeHide"><img src="assets/img/shape/shape20.png" alt="image"></div>
+                    <div class="shape22" *ngIf="data.shapeHide"><img src="assets/img/shape/shape21.png" alt="image"></div>
+                    <div class="shape23" *ngIf="data.shapeHide"><img src="assets/img/shape/shape22.png" alt="image"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shape3" *ngIf="data.shapeHide"><img src="assets/img/shape/shape3.png" alt="image"></div>
+    <div class="shape4" *ngIf="data.shapeHide"><img src="assets/img/shape/shape4.png" alt="image"></div>
+</div>

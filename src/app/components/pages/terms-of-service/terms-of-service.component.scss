@@ -1,0 +1,56 @@
+.terms-of-service-content {
+    img {
+        margin-bottom: 30px;
+        border-radius: 5px;
+        display: block;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .terms-of-service-content {
+        img {
+            margin-bottom: 25px;
+        }
+        h3 {
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        ul, ol {
+            li {
+                font-size: 14.5px;
+            }
+        }
+        .blockquote, blockquote {
+            p {
+                font-size: 15px !important;
+            }
+        }
+    }
+
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .terms-of-service-content {
+        h3 {
+            font-size: 19px;
+        }
+    }
+
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .terms-of-service-content {
+        h3 {
+            font-size: 20px;
+        }
+    }
+
+}
+@media only screen and (min-width: 1200px) and (max-width: 1355px) {
+
+}

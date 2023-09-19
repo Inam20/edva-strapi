@@ -1,0 +1,92 @@
+<div class="products-details-area ptb-100" *ngIf="data">
+    <div class="container" *ngFor="let content of data;">
+        <div class="row align-items-center">
+            <div class="col-lg-5 col-md-12">
+                <div class="products-details-image">
+                    <img [src]="content.image.url" alt="image">
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-12">
+                <div class="products-details-desc">
+                    <h3>{{content.title}}</h3>
+                    <div class="price">
+                        <span class="new-price">${{content.price}}</span>
+                    </div>
+                    <p>{{content.shortDesc}}</p>
+                    <div class="products-meta">
+                        <span>SKU: <span class="sku">{{content.sku}}</span></span>
+                        <ng-template *ngIf="content.availability == true; else outOfStock">
+                            <span>Availability: <span class="in-stock">In Stock</span></span>
+                        </ng-template>
+                        <ng-template #outOfStock>
+                            <span>Availability: <span class="out-stock">Out Of Stock</span></span>
+                        </ng-template>
+                        <span>Category: <span>{{content.category}}</span></span>
+                        <span>Tag: <span>{{content.tag}}</span></span>
+                    </div>
+                    <div class="products-add-to-cart" *ngIf="content.availability">
+                        <div class="input-counter">
+                            <input type="number" min="1" max="10" [(ngModel)]="inputnumber" />
+                        </div>
+                        <button
+                            type="submit"
+                            class="default-btn"
+                            (click)="addToCart(content, inputnumber)"
+                        >
+                            <i class="flaticon-user"></i>
+                            Add to Cart
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+                <div class="products-details-tabs">
+                    <div markdown ngPreserveWhitespaces>
+                        {{content.description}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="products-area pt-100 pb-70 bg-f5f1ed">
+    <div class="container">
+        <div class="section-title">
+            <span class="sub-title">Our Shop</span>
+            <h2>Recent Products</h2>
+        </div>
+        <div class="row justify-content-center" *ngIf="productData">
+            <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let content of productData.slice(0, 3)">
+                <div class="single-products-box">
+                    <div class="products-image">
+                        <a
+                            [routerLink]="['/product', content.slug]"
+                        >
+                            <img [src]="content.image.url" class="main-image" alt="image">
+                        </a>
+                    </div>
+                    <div class="products-content">
+                        <h3>
+                            <a
+                                [routerLink]="['/product', content.slug]"
+                            >
+                                {{content.title}}
+                            </a>
+                        </h3>
+                        <div class="price">
+                            <span class="new-price">${{content.price}}</span>
+                        </div>
+                        <button
+                            class="add-to-cart"
+                            (click)="addToCart(content)"
+                        >
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

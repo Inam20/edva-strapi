@@ -1,0 +1,47 @@
+<div class="courses-area ptb-100">
+    <div class="container">
+        <div class="section-title">
+            <span class="sub-title">GO AT YOUR OWN PACE</span>
+            <h2>Top Recent Courses</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="row justify-content-center" *ngIf="data">
+            <div class="col-lg-4 col-md-6" *ngFor="let content of data.slice(0, 6)">
+                <div class="single-courses-box">
+                    <div class="courses-image">
+                        <a
+                            [routerLink]="['/course', content.slug]"
+                            class="d-block image"
+                        >
+                            <img [src]="content.image.url" alt="image">
+                        </a>
+                        <div class="price shadow">${{content.price}}</div>
+                    </div>
+                    <div class="courses-content">
+                        <div class="course-author d-flex align-items-center">
+                            <img src="assets/img/avatar.jpg" class="rounded-circle" alt="image">
+                            <span *ngIf="content.admin_user">{{content.admin_user.firstname}} {{content.admin_user.lastname}}</span>
+                        </div>
+                        <h3 class="text-uppercase">
+                            <a
+                                [routerLink]="['/course', content.slug]"
+                            >
+                                {{content.title}}
+                            </a>
+                        </h3>
+                        <p>{{content.shortDesc}}</p>
+                        <ul class="courses-box-footer d-flex justify-content-between align-items-center">
+                            <li *ngIf="content.numberOfLesson"><i class='flaticon-agenda'></i> {{content.numberOfLesson}} Lessons</li>
+                            <li *ngIf="content.numberOfStudent"><i class='flaticon-people'></i> {{content.numberOfStudent}} Students</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+                <div class="courses-info">
+                    <p>Get the most dedicated consultation for your life-changing course. Earn a certification for your effort and passion <a routerLink="/profile-authentication">Join Free Now</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

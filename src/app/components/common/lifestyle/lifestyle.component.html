@@ -1,0 +1,24 @@
+<div class="lifestyle-area bg-f6f7fb pt-100 pb-70" *ngIf="data">
+    <div class="container">
+        <div class="section-title">
+            <h2 class="playfair-display-font">{{data.title}}</h2>
+            <p>{{data.paragraph}}</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let content of data.lifestyleLists;">
+                <div class="single-lifestyle-box">
+                    <div class="icon">
+                        <i class="{{content.icon}}"></i>
+                    </div>
+                    <h3 class="playfair-display-font">
+                        <a routerLink="{{content.link}}">
+                            {{content.title}}
+                        </a>
+                    </h3>
+                    <p>{{content.paragraph}}</p>
+                    <a routerLink="{{content.link}}" class="link-btn">{{content.linkText}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

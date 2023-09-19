@@ -1,0 +1,123 @@
+<div class="page-title-area">
+    <div class="container">
+        <div class="page-title-content">
+            <ul>
+                <li><a routerLink="/">Home</a></li>
+                <li>Checkout</li>
+            </ul>
+            <h2>Checkout</h2>
+        </div>
+    </div>
+    <div class="shape9"><img src="assets/img/shape/shape8.svg" alt="image"></div>
+</div>
+
+<div *ngIf="!isLoggedIn" class="login-area ptb-100">
+    <div class="container text-center">
+        <a
+            routerLink="/profile-authentication"
+            class="default-btn"
+        >
+            <i class="flaticon-user"></i>
+            Please login to continue
+            <span></span>
+        </a>
+    </div>
+</div>
+
+<div *ngIf="isLoggedIn" class="checkout-area ptb-100">
+    <div class="container">
+        <div class="empty-cart" *ngIf="products.length == 0; else cartForm">
+            <p>Your cart is currently empty.</p>
+            <a routerLink="/products-list-1" class="default-btn">
+                Return to Shop
+                <span></span>
+            </a>
+        </div>
+        <ng-template #cartForm>
+            <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="billing-details">
+                            <h3 class="title">Billing Details</h3>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label>Full Name <span class="required">*</span></label>
+                                        <input
+                                            formControlName="fullname"
+                                            id="fullname"
+                                            type="text"
+                                            class="form-control"
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label>Address <span class="required">*</span></label>
+                                        <input
+                                            id="address"
+                                            type="text"
+                                            class="form-control"
+                                            formControlName="address"
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label>Email Address <span class="required">*</span></label>
+                                        <input
+                                            id="email"
+                                            type="text"
+                                            class="form-control"
+                                            formControlName="email"
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label>Phone Number <span class="required">*</span></label>
+                                        <input
+                                            id="phone"
+                                            type="text"
+                                            class="form-control"
+                                            formControlName="phone"
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="order-details">
+                            <h3 class="title">Order Details</h3>
+                            <div class="payment-box">
+                                <span class="total">Order Total: ${{total}}</span>
+                                <div class="payment-method">
+                                    <p>
+                                        <input type="radio" id="cash-on-delivery" name="radio-group" checked>
+                                        <label for="cash-on-delivery">Cash on Delivery</label>
+                                    </p>
+                                </div>
+                                <button
+                                    type="submit"
+                                    [disabled]="
+                                        !checkoutForm.valid || total == '0.00'
+                                    "
+                                    class="default-btn"
+                                >
+                                    <i class="flaticon-shopping-cart"></i>
+                                    Place Order
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </ng-template>
+    </div>
+</div>

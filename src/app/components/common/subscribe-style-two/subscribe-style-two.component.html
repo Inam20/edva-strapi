@@ -1,0 +1,30 @@
+<div class="container" *ngIf="data">
+    <div class="row align-items-center">
+        <div class="col-lg-6 col-md-12">
+            <div class="subscribe-image" *ngIf="data.yogaImage">
+                <img [src]="data.yogaImage.url" alt="image">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <div class="subscribe-content">
+                <span class="sub-title">{{data.subtitle}}</span>
+                <h2 class="playfair-display-font">{{data.title}}</h2>
+                <p>{{data.desc}}</p>
+                <form class="newsletter-form" [formGroup]="subscribeForm" (ngSubmit)="onSubmit()">
+                    <input type="text" class="input-newsletter" placeholder="Enter your email address" formControlName="email">
+                    <button
+                        type="submit"
+                        class="default-btn"
+                        [disabled]="
+                            !subscribeForm.valid
+                        "
+                    >
+                        <i class="flaticon-user"></i>
+                        Subscribe Now
+                        <span></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

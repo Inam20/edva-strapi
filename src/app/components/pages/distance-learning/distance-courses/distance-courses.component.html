@@ -1,0 +1,48 @@
+<div class="courses-area bg-f5f7fa pt-100 pb-70">
+    <div class="container">
+        <div class="section-title">
+            <span class="sub-title">Go At Your Own Pace</span>
+            <h2>The World’s Largest Selection Of Courses</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="courses-tabs">
+            <div class="row justify-content-center" *ngIf="data">
+                <div class="col-lg-4 col-md-6" *ngFor="let content of data.slice(0, 9)">
+                    <div class="single-courses-item-box">
+                        <div class="courses-image">
+                            <a
+                                [routerLink]="['/course', content.slug]"
+                                class="d-block image"
+                            >
+                                <img [src]="content.image.url" alt="image">
+                            </a>
+                            <div class="price shadow">${{content.price}}</div>
+                            <button 
+                                type="submit" 
+                                class="default-btn"
+                                (click)="addToCart(content)"
+                            >
+                                Add To Cart
+                                <span></span>
+                            </button>
+                        </div>
+                        <div class="courses-content">
+                            <h3>
+                                <a
+                                    [routerLink]="['/course', content.slug]"
+                                >
+                                    {{content.title}}
+                                </a>
+                            </h3>
+                            <div class="course-author d-flex align-items-center justify-content-center">
+                                <img src="assets/img/avatar.jpg" class="rounded-circle" alt="image">
+                                <span *ngIf="content.admin_user">{{content.admin_user.firstname}} {{content.admin_user.lastname}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shape16"><img src="assets/img/shape/shape15.png" alt="image"></div>
+</div>

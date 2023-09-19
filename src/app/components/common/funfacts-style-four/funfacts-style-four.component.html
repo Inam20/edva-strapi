@@ -1,0 +1,14 @@
+<div class="funfacts-area-three bg-fff8f8 pt-100 pb-70" *ngIf="data">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-6" *ngFor="let content of data.funfactsList.slice(0, 4)">
+                <div class="funfacts-box">
+                    <div class="content">
+                        <h3><span [countUp]="content.number">00</span></h3>
+                        <p>{{content.title}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

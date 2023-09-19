@@ -1,0 +1,31 @@
+<div class="about-area ptb-100 bg-f9fbff" *ngIf="data">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="about-image">
+                    <img [src]="data.image.url" alt="image">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="about-content">
+                    <span class="sub-title">{{data.subtitle}}</span>
+                    <h2>{{data.title}}</h2>
+                    <p>{{data.paragraph}}</p>
+                    <ul class="features-list">
+                        <li *ngFor="let item of data.featuresList">
+                            <span>
+                                <i class="{{item.icon}}"></i> {{item.title}}
+                            </span>
+                        </li>
+                    </ul>
+                    <a routerLink="{{data.buttonLink}}" class="default-btn">
+                        <i class="{{data.buttonIcon}}"></i>
+                        {{data.buttonText}}
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bulb"><img src="assets/img/shape/bulb.png" alt="image"></div>
+</div>

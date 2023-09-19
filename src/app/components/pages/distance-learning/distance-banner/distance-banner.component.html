@@ -1,0 +1,16 @@
+<div class="banner-wrapper" *ngIf="data" style="background-image: url({{data.bgImage.url}});">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="banner-wrapper-text">
+                    <h1>{{data.title}}</h1>
+                    <p>{{data.desc}}</p>
+                    <a routerLink="{{data.buttonLink}}" class="default-btn"><i class="{{data.buttonIcon}}"></i>{{data.buttonText}}<span></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner-shape11" *ngIf="data.shapeHide"><img src="assets/img/shape/banner-shape12.png" alt="image"></div>
+    <div class="banner-shape12" *ngIf="data.shapeHide"><img src="assets/img/shape/banner-shape13.png" alt="image"></div>
+    <div class="banner-shape13" *ngIf="data.shapeHide"><img src="assets/img/shape/banner-shape14.png" alt="image"></div>
+</div>

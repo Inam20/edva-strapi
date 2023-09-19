@@ -1,0 +1,73 @@
+<div class="page-title-area">
+    <div class="container">
+        <div class="page-title-content">
+            <ul>
+                <li><a routerLink="/">Home</a></li>
+                <li>Terms of Service</li>
+            </ul>
+            <h2>Terms of Service</h2>
+        </div>
+    </div>
+    <div class="shape9"><img src="assets/img/shape/shape8.svg" alt="image"></div>
+</div>
+
+<div class="terms-of-service-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="terms-of-service-content" *ngIf="termsOfServiceData">
+                    <img [src]="termsOfServiceData.image.url" alt="image">
+                    <div markdown ngPreserveWhitespaces>
+                        {{termsOfServiceData.description}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <aside class="widget-area">
+                    <div class="widget widget_insight">
+                        <ul>
+                            <li><a routerLink="/about-1">About Us</a></li>
+                            <li><a routerLink="/contact">Contact Us</a></li>
+                            <li><a routerLink="/privacy-policy">Privacy Policy</a></li>
+                            <li class="active"><a routerLink="/terms-of-service">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="widget widget_recent_courses" *ngIf="data">
+                        <h3 class="widget-title">Recent Courses</h3>
+                        <article class="item" *ngFor="let content of data.slice(0, 3)">
+                            <a
+                                [routerLink]="['/course', content.slug]"
+                                class="thumb"
+                            >
+                                <span class="fullimage cover" role="img" style="background-image: url({{content.image.url}});"></span>
+                            </a>
+                            <div class="info">
+                                <span>${{content.price}}</span>
+                                <h4 class="title usmall">
+                                    <a 
+                                        [routerLink]="['/course', content.slug]"
+                                    >
+                                        {{content.title}}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div class="clear"></div>
+                        </article>
+                    </div>
+                    <div class="widget widget_tag_cloud" *ngIf="categoriesData">
+                        <h3 class="widget-title">Recent Categories</h3>
+                        <div class="tagcloud">
+                            <a
+                                *ngFor="let content of categoriesData.slice(0, 15);"
+                                [routerLink]="['/course-category', content.slug]"
+                            >
+                                {{content.title}}
+                                <span class="tag-link-count">({{content.courses.length}})</span>
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>

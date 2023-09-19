@@ -1,0 +1,17 @@
+<div class="yoga-main-banner" *ngIf="data" style="background-image: url({{data.bgImage.url}});">
+    <div class="container-fluid">
+        <div class="yoga-banner-content">
+            <img src="assets/img/yoga-banner.png" alt="image" class="main-image">
+            <div class="content">
+                <img [src]="data.topImage.url" class="top-image" alt="image">
+                <h1 class="playfair-display-font">{{data.title}}</h1>
+                <p>{{data.desc}}</p>
+                <a routerLink="{{data.buttonLink}}" class="default-btn"><i class="{{data.buttonIcon}}"></i>{{data.buttonText}}<span></span></a>
+                <br>
+                <img [src]="data.bottomImage.url" class="bottom-image" alt="image">
+            </div>
+        </div>
+    </div>
+    <div class="banner-shape2" *ngIf="data.shapeHide"><img src="assets/img/shape/banner-shape2.png" alt="image"></div>
+    <div class="banner-shape3" *ngIf="data.shapeHide"><img src="assets/img/shape/banner-shape3.png" alt="image"></div>
+</div>
