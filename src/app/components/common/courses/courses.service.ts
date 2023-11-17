@@ -7,23 +7,22 @@ import { environment } from '../../../../../src/environments/environment';
 })
 export class CoursesService {
 
-    private API_URL= environment.API_URL;
+    private API_URL = environment.API_URL;
 
     constructor(
-        private http : HttpClient
-    ) {}
+        private http: HttpClient
+    ) { }
 
-    getData(){
+    getData() {
         let url = `${this.API_URL}/courses?_sort=id:DESC`;
         return this.http.get(url);
     }
-    getCategoriesData(){
+    getCategoriesData() {
         let url = `${this.API_URL}/courses-categories?_sort=id:DESC`;
         return this.http.get(url);
     }
-    getPopularCourseData(){
+    getPopularCourseData() {
         let url = `${this.API_URL}/courses?popular=true&_sort=id:DESC`;
         return this.http.get(url);
     }
-
 }

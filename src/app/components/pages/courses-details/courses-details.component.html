@@ -1,6 +1,5 @@
 <div *ngIf="data">
-    <div *ngFor="let content of data;">
-
+    <div *ngFor="let content of data">
         <div class="page-title-area">
             <div class="container">
                 <div class="page-title-content">
@@ -8,39 +7,67 @@
                         <li><a routerLink="/">Home</a></li>
                         <li>
                             <a
-                                [routerLink]="['/category', content.courses_category.slug]"
+                                [routerLink]="[
+                                    '/category',
+                                    content.courses_category.slug
+                                ]"
                             >
-                                {{content.courses_category.title}}
+                                {{ content.courses_category.title }}
                             </a>
                         </li>
-                        <li>{{content.title}}</li>
+                        <li>{{ content.title }}</li>
                     </ul>
-                    <h2>{{content.title}}</h2>
+                    <h2>{{ content.title }}</h2>
                 </div>
             </div>
-            <div class="shape9"><img src="assets/img/shape/shape8.svg" alt="image"></div>
+            <div class="shape9">
+                <img src="assets/img/shape/shape8.svg" alt="image" />
+            </div>
         </div>
-        
+
         <div class="courses-details-area ptb-100">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-12">
                         <div class="courses-details-image">
-                            <img [src]="content.image.url" alt="image">
+                            <img [src]="content.image.url" alt="image" />
                         </div>
                         <div class="courses-details-desc">
                             <div markdown ngPreserveWhitespaces>
-                                {{content.description}}
+                                {{ content.description }}
+                            </div>
+                            <h3>Course PDF</h3>
+                            <div *ngIf="content.course_pdf">
+                                <a
+                                    [href]="content.course_pdf.url"
+                                    target="_blank"
+                                    >Download PDF</a
+                                >
                             </div>
                             <h3>Courses Video</h3>
                             <div class="courses-curriculum">
                                 <ul>
-                                    <li *ngFor="let item of content.course_videos;">
-                                        <a href="#" class="locked popup-youtube d-flex justify-content-between align-items-center">
-                                            <span class="courses-name">{{item.title}}</span>
+                                    <li
+                                        *ngFor="
+                                            let item of content.course_videos
+                                        "
+                                    >
+                                        <a
+                                            href="#"
+                                            class="locked popup-youtube d-flex justify-content-between align-items-center"
+                                        >
+                                            <span class="courses-name">{{
+                                                item.title
+                                            }}</span>
                                             <div class="courses-meta">
-                                                <span class="duration">{{item.duration}}</span>
-                                                <span class="status locked"><i class="flaticon-password"></i></span>
+                                                <span class="duration">{{
+                                                    item.duration
+                                                }}</span>
+                                                <span class="status locked"
+                                                    ><i
+                                                        class="flaticon-password"
+                                                    ></i
+                                                ></span>
                                             </div>
                                         </a>
                                     </li>
@@ -52,45 +79,90 @@
                         <div class="courses-sidebar-information">
                             <ul class="info">
                                 <li *ngIf="content.admin_user">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span><i class="flaticon-teacher"></i> Instructor</span>
-                                        {{content.admin_user.firstname}} {{content.admin_user.lastname}}
+                                    <div
+                                        class="d-flex justify-content-between align-items-center"
+                                    >
+                                        <span
+                                            ><i class="flaticon-teacher"></i>
+                                            Instructor</span
+                                        >
+                                        {{ content.admin_user.firstname }}
+                                        {{ content.admin_user.lastname }}
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span><i class="flaticon-time"></i> Duration</span>
-                                        {{content.totalCourseDuration}}
+                                    <div
+                                        class="d-flex justify-content-between align-items-center"
+                                    >
+                                        <span
+                                            ><i class="flaticon-time"></i>
+                                            Duration</span
+                                        >
+                                        {{ content.totalCourseDuration }}
                                     </div>
                                 </li>
                                 <li *ngIf="content.numberOfLesson">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span><i class="flaticon-distance-learning"></i> Lessons</span>
-                                        {{content.numberOfLesson}}
+                                    <div
+                                        class="d-flex justify-content-between align-items-center"
+                                    >
+                                        <span
+                                            ><i
+                                                class="flaticon-distance-learning"
+                                            ></i>
+                                            Lessons</span
+                                        >
+                                        {{ content.numberOfLesson }}
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span><i class="flaticon-html"></i> Language</span>
-                                        {{content.language}}
+                                    <div
+                                        class="d-flex justify-content-between align-items-center"
+                                    >
+                                        <span
+                                            ><i class="flaticon-html"></i>
+                                            Language</span
+                                        >
+                                        {{ content.language }}
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span><i class="flaticon-caption"></i> Video Subtitle</span>
-                                        {{content.videoSubtitle}}
+                                    <div
+                                        class="d-flex justify-content-between align-items-center"
+                                    >
+                                        <span
+                                            ><i class="flaticon-caption"></i>
+                                            Video Subtitle</span
+                                        >
+                                        {{ content.videoSubtitle }}
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span><i class="flaticon-lock"></i> Access</span>
-                                        {{content.accessLimit}}
+                                    <div
+                                        class="d-flex justify-content-between align-items-center"
+                                    >
+                                        <span
+                                            ><i class="flaticon-lock"></i>
+                                            Access</span
+                                        >
+                                        {{ content.accessLimit }}
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span><i class="flaticon-certification"></i> Certificate</span>
-                                        <span *ngIf="content.certificate == 1; else noCertificate">
+                                    <div
+                                        class="d-flex justify-content-between align-items-center"
+                                    >
+                                        <span
+                                            ><i
+                                                class="flaticon-certification"
+                                            ></i>
+                                            Certificate</span
+                                        >
+                                        <span
+                                            *ngIf="
+                                                content.certificate == 1;
+                                                else noCertificate
+                                            "
+                                        >
                                             Yes
                                         </span>
                                         <ng-template #noCertificate>
@@ -100,9 +172,9 @@
                                 </li>
                             </ul>
                             <div class="btn-box">
-                                <div class="price">${{content.price}}</div>
-                                <button 
-                                    type="submit" 
+                                <div class="price">${{ content.price }}</div>
+                                <button
+                                    type="submit"
                                     class="default-btn"
                                     (click)="addToCart(content)"
                                 >
@@ -116,7 +188,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -126,18 +197,21 @@
             <h2>More Courses You Might Like</h2>
         </div>
         <div class="row justify-content-center" *ngIf="courseData">
-            <div class="col-lg-4 col-md-6" *ngFor="let content of courseData.slice(0, 3)">
+            <div
+                class="col-lg-4 col-md-6"
+                *ngFor="let content of courseData.slice(0, 3)"
+            >
                 <div class="single-courses-box">
                     <div class="courses-image">
                         <a
                             [routerLink]="['/course', content.slug]"
                             class="d-block image"
                         >
-                            <img [src]="content.image.url" alt="image">
+                            <img [src]="content.image.url" alt="image" />
                         </a>
-                        <div class="price shadow">${{content.price}}</div>
-                        <button 
-                            type="submit" 
+                        <div class="price shadow">${{ content.price }}</div>
+                        <button
+                            type="submit"
                             class="default-btn"
                             (click)="addToCart(content)"
                         >
@@ -147,20 +221,33 @@
                     </div>
                     <div class="courses-content">
                         <div class="course-author d-flex align-items-center">
-                            <img src="assets/img/avatar.jpg" class="rounded-circle" alt="image">
-                            <span *ngIf="content.admin_user">{{content.admin_user.firstname}} {{content.admin_user.lastname}}</span>
+                            <img
+                                src="assets/img/avatar.jpg"
+                                class="rounded-circle"
+                                alt="image"
+                            />
+                            <span *ngIf="content.admin_user"
+                                >{{ content.admin_user.firstname }}
+                                {{ content.admin_user.lastname }}</span
+                            >
                         </div>
                         <h3>
-                            <a
-                                [routerLink]="['/course', content.slug]"
-                            >
-                                {{content.title}}
+                            <a [routerLink]="['/course', content.slug]">
+                                {{ content.title }}
                             </a>
                         </h3>
-                        <p>{{content.shortDesc}}</p>
-                        <ul class="courses-box-footer d-flex justify-content-between align-items-center">
-                            <li *ngIf="content.numberOfLesson"><i class='flaticon-agenda'></i> {{content.numberOfLesson}} Lessons</li>
-                            <li *ngIf="content.numberOfStudent"><i class='flaticon-people'></i> {{content.numberOfStudent}} Students</li>
+                        <p>{{ content.shortDesc }}</p>
+                        <ul
+                            class="courses-box-footer d-flex justify-content-between align-items-center"
+                        >
+                            <li *ngIf="content.numberOfLesson">
+                                <i class="flaticon-agenda"></i>
+                                {{ content.numberOfLesson }} Lessons
+                            </li>
+                            <li *ngIf="content.numberOfStudent">
+                                <i class="flaticon-people"></i>
+                                {{ content.numberOfStudent }} Students
+                            </li>
                         </ul>
                     </div>
                 </div>
