@@ -37,6 +37,8 @@
             bottom: 0;
         };
         .navbar-brand {
+            display: flex;
+            align-items: center;
             font-size: inherit;
             line-height: 1;
             padding: {
@@ -45,6 +47,13 @@
                 left: 0;
                 right: 0;
             };
+            margin-left: 0;
+        }
+        .brand-name {
+            color: #018cd2;
+            font-size: larger;
+            font-weight: bold;
+            margin-left: 15px;
         }
         ul {
             padding-left: 0;
@@ -53,7 +62,7 @@
         }
         .search-box {
             width: 270px;
-            margin-left: 50px;
+            margin-left: 10px;
             position: relative;
             border-radius: 5px;
 
@@ -593,6 +602,22 @@
             }
             .default-btn {
                 cursor: pointer;
+            }
+
+            .login {
+                padding-left: 30px;
+            }
+
+            .register {
+                padding-left: 30px;
+            }
+
+            .login:hover {
+                background-color: var(--blackColor);
+            }
+
+            .register:hover {
+                background-color: var(--blackColor);
             }
         }
     }
