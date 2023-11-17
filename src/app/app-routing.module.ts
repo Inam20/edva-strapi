@@ -17,6 +17,8 @@ import { AboutStyleThreeComponent } from './components/pages/about-style-three/a
 import { AboutStyleFourComponent } from './components/pages/about-style-four/about-style-four.component';
 import { TeacherComponent } from './components/pages/teacher/teacher.component';
 import { ProfileAuthenticationComponent } from './components/pages/profile-authentication/profile-authentication.component';
+import { LoginComponent } from './components/pages/profile-authentication/login/login.component';
+import { RegisterComponent } from './components/pages/profile-authentication/register/register.component';
 import { ErrorComponent } from './components/pages/error/error.component';
 import { PrivacyPolicyComponent } from './components/pages/privacy-policy/privacy-policy.component';
 import { TermsOfServiceComponent } from './components/pages/terms-of-service/terms-of-service.component';
@@ -80,6 +82,8 @@ const routes: Routes = [
         path: 'profile-authentication',
         component: ProfileAuthenticationComponent,
     },
+    { path: 'profile-authentication/login', component: LoginComponent },
+    { path: 'profile-authentication/register', component: RegisterComponent },
     { path: 'faq', component: FaqComponent },
     { path: 'privacy-policy', component: PrivacyPolicyComponent },
     { path: 'terms-of-service', component: TermsOfServiceComponent },
@@ -123,4 +127,4 @@ const routes: Routes = [
     imports: [RouterModule.forRoot(routes, {})],
     exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -1,0 +1,98 @@
+<div class="page-title-area">
+    <div class="container">
+        <div class="page-title-content">
+            <ul>
+                <li><a routerLink="/">Home</a></li>
+                <li>Register</li>
+            </ul>
+            <h2>Register</h2>
+        </div>
+    </div>
+    <div class="shape9">
+        <img src="assets/img/shape/shape8.svg" alt="image" />
+    </div>
+</div>
+
+<div class="profile-authentication-area ptb-100">
+    <div class="container register-section">
+        <div class="register-form">
+            <h2>Register</h2>
+            <form [formGroup]="regForm" (ngSubmit)="onRegister()">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Name"
+                        formControlName="username"
+                    />
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        name="email"
+                        class="form-control"
+                        placeholder="Email"
+                        formControlName="email"
+                    />
+                    <div
+                        class="error-message"
+                        *ngIf="
+                            regForm.get('email').hasError('required') &&
+                            regForm.get('email').touched
+                        "
+                    >
+                        Email is required.
+                    </div>
+                    <div
+                        class="error-message"
+                        *ngIf="
+                            regForm.get('email').hasError('email') &&
+                            regForm.get('email').touched
+                        "
+                    >
+                        Please enter a valid email address.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Mobile No.</label>
+                    <input
+                        type="tel"
+                        class="form-control"
+                        placeholder="Mobile No."
+                        formControlName="phoneNumber"
+                    />
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        class="form-control"
+                        placeholder="Password"
+                        formControlName="password"
+                    />
+                    <div
+                        class="error-message"
+                        *ngIf="
+                            regForm.get('password').hasError('required') &&
+                            regForm.get('password').touched
+                        "
+                    >
+                        Password is required.
+                    </div>
+                    <div
+                        class="error-message"
+                        *ngIf="
+                            regForm.get('password').hasError('minlength') &&
+                            regForm.get('password').touched
+                        "
+                    >
+                        Password must be at least 6 characters long.
+                    </div>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+</div>

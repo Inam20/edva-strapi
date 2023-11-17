@@ -176,6 +176,8 @@ import { ProfileUpdateComponent } from './components/pages/profile-update/profil
 import { CoursesCartComponent } from './components/pages/courses-cart/courses-cart.component';
 import { CoursesCheckoutComponent } from './components/pages/courses-checkout/courses-checkout.component';
 import { MyCourseComponent } from './components/pages/my-course/my-course.component';
+import { LoginComponent } from './components/pages/profile-authentication/login/login.component';
+import { RegisterComponent } from './components/pages/profile-authentication/register/register.component';
 
 const customNotifierOptions: NotifierOptions = {
     position: {
@@ -351,6 +353,8 @@ const customNotifierOptions: NotifierOptions = {
         CoursesCartComponent,
         CoursesCheckoutComponent,
         MyCourseComponent,
+        LoginComponent,
+        RegisterComponent,
     ],
     imports: [
         BrowserModule,
