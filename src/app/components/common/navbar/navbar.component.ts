@@ -15,7 +15,7 @@ import { CoursesService } from '../courses/courses.service';
 export class NavbarComponent implements OnInit {
 
     term = '';
-    public data : any;
+    public data: any;
     public searchData: any;
     isLoggedIn = this.userService.isLoggedIn();
     private readonly notifier: NotifierService;
@@ -27,20 +27,20 @@ export class NavbarComponent implements OnInit {
         private userService: UserService,
         private cartService: CartService,
         notifierService: NotifierService,
-		private content: CoursesService,
-        private navbar : NavbarService,
+        private content: CoursesService,
+        private navbar: NavbarService,
         public router: Router
     ) {
         this.notifier = notifierService;
-        this.navbar.getData().subscribe((data : any)=>{
-			this.data = data;
-		});
-		this.content.getData().subscribe((searchData: any) => {
+        this.navbar.getData().subscribe((data: any) => {
+            this.data = data;
+        });
+        this.content.getData().subscribe((searchData: any) => {
             this.searchData = searchData;
         });
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void { }
 
     classApplied = false;
     toggleClass() {
@@ -52,13 +52,17 @@ export class NavbarComponent implements OnInit {
         this.classSearchApplied = !this.classSearchApplied;
     }
 
-    logOutUser(){
+    logOutUser() {
         this.userService.logOut()
         this.notifier.notify('success', 'Logout successful.');
         this.router.navigate(['/'])
-        .then(() => {
-            window.location.reload()
-        })
+            .then(() => {
+                window.location.reload()
+            })
+    }
+
+    showDefaultNavbar(): boolean {
+        return !this.router.url.includes('index')
     }
 
 }

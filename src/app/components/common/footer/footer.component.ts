@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FooterService } from './footer.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-footer',
@@ -10,14 +11,18 @@ export class FooterComponent implements OnInit {
 
     public data: any;
 
-    constructor(
-		private content: FooterService
+    constructor(private router: Router,
+        private content: FooterService
     ) {
         this.content.getData().subscribe((data: any) => {
             this.data = data;
         });
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void { }
+
+    showDefaultFooter(): boolean {
+        return !this.router.url.includes('index')
+    }
 
 }
