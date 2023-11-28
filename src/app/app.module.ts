@@ -178,6 +178,9 @@ import { CoursesCheckoutComponent } from './components/pages/courses-checkout/co
 import { MyCourseComponent } from './components/pages/my-course/my-course.component';
 import { LoginComponent } from './components/pages/profile-authentication/login/login.component';
 import { RegisterComponent } from './components/pages/profile-authentication/register/register.component';
+import { IndexComponent } from './components/pages/index/index.component';
+import { IndexNavbarComponent } from './components/pages/index/index-navbar/index-navbar.component';
+import { IndexFooterComponent } from './components/pages/index/index-footer/index-footer.component';
 
 const customNotifierOptions: NotifierOptions = {
     position: {
@@ -355,6 +358,9 @@ const customNotifierOptions: NotifierOptions = {
         MyCourseComponent,
         LoginComponent,
         RegisterComponent,
+        IndexComponent,
+        IndexNavbarComponent,
+        IndexFooterComponent,
     ],
     imports: [
         BrowserModule,
