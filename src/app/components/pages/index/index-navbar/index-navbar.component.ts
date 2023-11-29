@@ -39,6 +39,18 @@ export class IndexNavbarComponent implements OnInit {
     });
   }
 
+  showSearch = false;
+  searchQuery = '';
+
+  toggleSearch() {
+    this.showSearch = !this.showSearch;
+  }
+
+  closeSearch() {
+    this.showSearch = false;
+    // You can perform additional actions here, like triggering a search.
+  }
+
   ngOnInit(): void { }
 
   classApplied = false;

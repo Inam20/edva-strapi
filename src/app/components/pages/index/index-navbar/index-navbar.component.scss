@@ -1,3 +1,7 @@
+nav {
+    position: relative;
+}
+
 .navbar-area {
     position: relative;
     background-color: var(--whiteColor);
@@ -633,6 +637,22 @@
         }
     }
 }
+
+.search {
+    position: relative;
+}
+
+.search-box {
+    display: none ;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+}
+
+.search-box.active {
+    display: block;
+  }
 
 @media only screen and (max-width: 767px) {
 
