@@ -1,14 +1,10 @@
-<div
-    id="carouselExampleSlidesOnly"
-    class="carousel slide"
-    data-bs-ride="carousel"
->
+<div class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
             <div
                 class="banner-section"
                 *ngIf="data"
-                style="background-image: url({{ data.bgImage.url }})"
+                style="background-image: url('{{ data.bgImage.url }}')"
             >
                 <div class="container-fluid">
                     <div class="row align-items-center">
