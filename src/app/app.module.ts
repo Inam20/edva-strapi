@@ -181,6 +181,7 @@ import { RegisterComponent } from './components/pages/profile-authentication/reg
 import { IndexComponent } from './components/pages/index/index.component';
 import { IndexNavbarComponent } from './components/pages/index/index-navbar/index-navbar.component';
 import { IndexFooterComponent } from './components/pages/index/index-footer/index-footer.component';
+import { IndexHeroComponent } from './components/pages/index/index-hero/index-hero.component';
 
 const customNotifierOptions: NotifierOptions = {
     position: {
@@ -361,6 +362,7 @@ const customNotifierOptions: NotifierOptions = {
         IndexComponent,
         IndexNavbarComponent,
         IndexFooterComponent,
+        IndexHeroComponent,
     ],
     imports: [
         BrowserModule,
