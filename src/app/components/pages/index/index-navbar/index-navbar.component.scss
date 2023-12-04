@@ -67,7 +67,7 @@ nav {
         .search-box {
             width: 270px;
             margin-left: 10px;
-            position: relative;
+            // position: relative;
             border-radius: 5px;
 
             .input-search {
@@ -634,25 +634,35 @@ nav {
                 font-weight: bold;
                 align-items: center;
             }
+
+            .search-btn:hover {
+                background-color: var(--blackColor);
+            }
         }
     }
 }
 
-.search {
-    position: relative;
-}
+// .search {
+//     position: relative;
+// }
 
 .search-box {
-    display: none ;
     position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1;
+    top: 110%;
+    right: 2%;
+    z-index: 2;
+    display: none; /* Set initial display to none */
 }
 
 .search-box.active {
-    display: block;
+    display: block; /* Display when the active class is present */
   }
+
+.courses-lists {
+    position: absolute;
+    right: 1%;
+    display: none;
+}
 
 @media only screen and (max-width: 767px) {
 

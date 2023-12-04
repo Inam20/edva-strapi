@@ -79,55 +79,64 @@
                     </a>
                 </div>
                 <div class="option-item search">
-                    <!-- Button trigger modal -->
-                    <button
-                        type="button"
-                        class="search-btn"
-                        data-bs-toggle="modal"
-                        data-bs-target="#searchModal"
-                    >
+                    <div>
+                        <!-- Button trigger modal -->
+                        <button
+                            type="button"
+                            class="search-btn"
+                            data-bs-toggle="modal"
+                            data-bs-target="#searchModal"
+                            (click)="toggleSearch()"
+                        >
+                            <i class="flaticon-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="search-box" [class.active]="isSearchOpen">
+                    <input
+                        type="text"
+                        [(ngModel)]="term"
+                        class="input-search"
+                        placeholder="Search for anything"
+                        (click)="togglSearcheClass()"
+                    />
+                    <button type="submit">
                         <i class="flaticon-search"></i>
                     </button>
-                </div>
-
-                <!-- Bootstrap Search Modal -->
-                <div
-                    class="modal fade"
-                    id="searchModal"
-                    tabindex="-1"
-                    aria-labelledby="searchModalLabel"
-                    aria-hidden="true"
-                >
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="searchModalLabel">
-                                    Search
-                                </h5>
-                                <button
-                                    type="button"
-                                    class="btn-close"
-                                    data-bs-dismiss="modal"
-                                    aria-label="Close"
-                                ></button>
-                            </div>
-                            <div class="modal-body">
-                                <input
-                                    type="text"
-                                    [(ngModel)]="term"
-                                    class="form-control"
-                                    placeholder="Search for anything"
-                                />
-                            </div>
-                            <div class="modal-footer">
-                                <button
-                                    type="button"
-                                    class="btn btn-secondary"
-                                    data-bs-dismiss="modal"
-                                >
-                                    Close
-                                </button>
-                                <!-- You can add a submit button here if needed -->
+                    <div class="courses-lists" *ngIf="searchData">
+                        <div
+                            class="list-group-item"
+                            *ngFor="let content of searchData | filter : term"
+                        >
+                            <div
+                                class="row align-items-center"
+                                (click)="togglSearcheClass()"
+                            >
+                                <div class="col-lg-3 col-md-2 col-3">
+                                    <a
+                                        [routerLink]="['/course', content.slug]"
+                                        class="course-img"
+                                    >
+                                        <img
+                                            [src]="content.image.url"
+                                            alt="image"
+                                        />
+                                    </a>
+                                </div>
+                                <div class="col-lg-9 col-md-10 col-9">
+                                    <div class="info">
+                                        <h3>
+                                            <a
+                                                [routerLink]="[
+                                                    '/course',
+                                                    content.slug
+                                                ]"
+                                            >
+                                                {{ content.title }}
+                                            </a>
+                                        </h3>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

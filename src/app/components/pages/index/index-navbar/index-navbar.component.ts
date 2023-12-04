@@ -39,17 +39,17 @@ export class IndexNavbarComponent implements OnInit {
     });
   }
 
-  showSearch = false;
+  isSearchOpen = false;
   searchQuery = '';
 
   toggleSearch() {
-    this.showSearch = !this.showSearch;
-  }
+    this.isSearchOpen = !this.isSearchOpen;
+  };
 
-  closeSearch() {
-    this.showSearch = false;
-    // You can perform additional actions here, like triggering a search.
-  }
+  // closeSearch() {
+  //   this.showSearch = false;
+  //   // You can perform additional actions here, like triggering a search.
+  // }
 
   ngOnInit(): void { }
 
@@ -71,5 +71,4 @@ export class IndexNavbarComponent implements OnInit {
         window.location.reload()
       })
   }
-
 }
