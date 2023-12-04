@@ -14,6 +14,7 @@ import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { LightgalleryModule } from 'lightgallery/angular';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { HideScrollTopDirective } from './hide-scrolltop.directive';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -363,6 +364,7 @@ const customNotifierOptions: NotifierOptions = {
         IndexNavbarComponent,
         IndexFooterComponent,
         IndexHeroComponent,
+        HideScrollTopDirective
     ],
     imports: [
         BrowserModule,
@@ -385,5 +387,6 @@ const customNotifierOptions: NotifierOptions = {
     ],
     providers: [],
     bootstrap: [AppComponent],
+    exports: [HideScrollTopDirective],
 })
-export class AppModule {}
+export class AppModule { }

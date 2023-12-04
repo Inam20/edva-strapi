@@ -12,3 +12,38 @@ h1 {
     text-align: start;
     margin-bottom: 20px;
 }
+
+.scroll-top-btn {
+    position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid;
+  background-color: #fe4a55;
+  color:#fff
+}
+
+.scroll-top-btn:hover {
+    background-color: var(--blackColor);
+}
+
+.register-btn {
+  /* Add your styling for the buttons */
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  z-index: 2;
+  border: 1px solid;
+  background-color: #fe4a55;
+  color: #fff;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.register-btn:hover {
+    background-color: var(--blackColor);
+}

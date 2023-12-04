@@ -78,5 +78,25 @@
         </p>
     </div>
 </div>
+<div>
+    <button
+        *ngIf="showScrollTopButton"
+        class="scroll-top-btn"
+        (click)="scrollToTop()"
+    >
+        <span>
+            <i class="fa-solid fa-angle-up fa-lg"></i>
+        </span>
+    </button>
+
+    <!-- Register Button -->
+    <button
+        *ngIf="showRegisterButton"
+        class="register-btn"
+        (click)="navigateToRegister()"
+    >
+        <i class="fa-regular fa-address-card fa-lg"></i>
+    </button>
+</div>
 
 <app-index-footer></app-index-footer>
