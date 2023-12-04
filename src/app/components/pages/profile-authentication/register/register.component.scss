@@ -1,13 +1,36 @@
+.register-bg {
+    background-image: url('../../../../../assets/register-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
 .register-section {
     display: flex;
-    justify-content: center;
+    justify-content: end;
 }
+
+/* Add styles in your component's CSS or global styles.css file */
+.password-mismatch {
+    color: red;
+  }
+
+  /* Add these styles to highlight input fields based on validity */
+.is-valid {
+    border: 2px solid green;
+}
+
+.is-invalid {
+    border: 2px solid red;
+}
+  
 
 .register-form {
     padding: 40px 50px;
     border-radius: 5px;
     background-color: var(--whiteColor);
-    box-shadow: 0 0 10px rgba(51,51,51,.1);
+    box-shadow: 0 0 0 10px rgba(51,51,51,.1);
     margin-right: 30px;
     width: 50%;
     
