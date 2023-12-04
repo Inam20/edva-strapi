@@ -1,10 +1,14 @@
-<div class="carousel slide" data-bs-ride="carousel">
+<div
+    id="carouselExampleControls"
+    class="carousel slide"
+    data-bs-ride="carousel"
+>
     <div class="carousel-inner">
         <div class="carousel-item active">
             <div
                 class="banner-section"
                 *ngIf="data"
-                style="background-image: url('{{ data.bgImage.url }}')"
+                style="background-image: url('{{ data.bgImage.url }}');"
             >
                 <div class="container-fluid">
                     <div class="row align-items-center">
@@ -66,91 +70,156 @@
             </div>
         </div>
         <div class="carousel-item">
-            <div class="main-banner-wrapper" *ngIf="learning">
+            <div
+                class="banner-section"
+                *ngIf="data"
+                style="background-image: url('{{ data.bgImage.url }}');"
+            >
                 <div class="container-fluid">
                     <div class="row align-items-center">
+                        <div class="col-lg-7 col-md-12">
+                            <div class="banner-image">
+                                <img
+                                    class="banner-2-img"
+                                    src="../../../../../assets/baner-2-bg-remove.png"
+                                    alt="image"
+                                />
+                                <div
+                                    class="banner-shape4"
+                                    *ngIf="data.shapeHide"
+                                >
+                                    <img
+                                        src="assets/img/shape/banner-shape4.png"
+                                        alt="image"
+                                    />
+                                </div>
+                                <div
+                                    class="banner-shape5"
+                                    *ngIf="data.shapeHide"
+                                >
+                                    <img
+                                        src="assets/img/shape/banner-shape5.png"
+                                        alt="image"
+                                    />
+                                </div>
+                                <div
+                                    class="banner-shape6"
+                                    *ngIf="data.shapeHide"
+                                >
+                                    <img
+                                        src="assets/img/shape/banner-shape6.png"
+                                        alt="image"
+                                    />
+                                </div>
+                                <div
+                                    class="banner-shape7"
+                                    *ngIf="data.shapeHide"
+                                >
+                                    <img
+                                        src="assets/img/shape/banner-shape7.png"
+                                        alt="image"
+                                    />
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-lg-5 col-md-12">
-                            <div class="main-banner-wrapper-content">
-                                <h1>{{ learning.title }}</h1>
-                                <p>{{ learning.desc }}</p>
+                            <div class="banner-content">
+                                <h1>Internship Certification Training</h1>
+                                <p>{{ data.desc }}</p>
                                 <a
-                                    routerLink="{{ learning.buttonLink }}"
+                                    routerLink="{{ data.buttonLink }}"
                                     class="default-btn"
-                                    ><i class="{{ learning.buttonIcon }}"></i
-                                    >{{ learning.buttonText }}<span></span
+                                    ><i class="{{ data.buttonIcon }}"></i
+                                    >{{ data.buttonText }}<span></span
                                 ></a>
                             </div>
                         </div>
-                        <div class="col-lg-7 col-md-12">
-                            <div class="main-banner-wrapper-image text-center">
-                                <img [src]="learning.image.url" alt="image" />
-                            </div>
-                        </div>
                     </div>
-                </div>
-                <div class="banner-shape14" *ngIf="learning.shapeHide">
-                    <img
-                        src="assets/img/shape/banner-shape15.png"
-                        alt="image"
-                    />
-                </div>
-                <div class="banner-shape15" *ngIf="learning.shapeHide">
-                    <img
-                        src="assets/img/shape/banner-shape16.png"
-                        alt="image"
-                    />
-                </div>
-                <div class="banner-shape16" *ngIf="learning.shapeHide">
-                    <img
-                        src="assets/img/shape/banner-shape17.png"
-                        alt="image"
-                    />
-                </div>
-                <div class="banner-shape17" *ngIf="learning.shapeHide">
-                    <img
-                        src="assets/img/shape/banner-shape18.png"
-                        alt="image"
-                    />
-                </div>
-                <div class="banner-shape18" *ngIf="learning.shapeHide">
-                    <img
-                        src="assets/img/shape/banner-shape19.png"
-                        alt="image"
-                    />
                 </div>
             </div>
         </div>
         <div class="carousel-item">
-            <div class="hero-banner-area" *ngIf="mod">
+            <div
+                class="banner-section"
+                *ngIf="data"
+                style="background-image: url('{{ data.bgImage.url }}');"
+            >
                 <div class="container-fluid">
                     <div class="row align-items-center">
-                        <div class="col-lg-6 col-md-12">
-                            <div class="hero-banner-content">
-                                <h1>{{ mod.title }}</h1>
-                                <p>{{ mod.desc }}</p>
+                        <div class="col-lg-5 col-md-12">
+                            <div class="banner-content">
+                                <h1>Java Certification Training</h1>
+                                <p>{{ data.desc }}</p>
                                 <a
-                                    routerLink="{{ mod.buttonLink }}"
+                                    routerLink="{{ data.buttonLink }}"
                                     class="default-btn"
-                                    ><i class="{{ mod.buttonIcon }}"></i
-                                    >{{ mod.buttonText }}<span></span
+                                    ><i class="{{ data.buttonIcon }}"></i
+                                    >{{ data.buttonText }}<span></span
                                 ></a>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-12">
-                            <div class="hero-banner-image">
-                                <img [src]="mod.image.url" alt="image" />
+                        <div class="col-lg-7 col-md-12">
+                            <div class="banner-image">
+                                <img [src]="data.image.url" alt="image" />
+                                <div
+                                    class="banner-shape4"
+                                    *ngIf="data.shapeHide"
+                                >
+                                    <img
+                                        src="assets/img/shape/banner-shape4.png"
+                                        alt="image"
+                                    />
+                                </div>
+                                <div
+                                    class="banner-shape5"
+                                    *ngIf="data.shapeHide"
+                                >
+                                    <img
+                                        src="assets/img/shape/banner-shape5.png"
+                                        alt="image"
+                                    />
+                                </div>
+                                <div
+                                    class="banner-shape6"
+                                    *ngIf="data.shapeHide"
+                                >
+                                    <img
+                                        src="assets/img/shape/banner-shape6.png"
+                                        alt="image"
+                                    />
+                                </div>
+                                <div
+                                    class="banner-shape7"
+                                    *ngIf="data.shapeHide"
+                                >
+                                    <img
+                                        src="assets/img/shape/banner-shape7.png"
+                                        alt="image"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="banner-shape19" *ngIf="mod.shapeHide">
-                    <img
-                        src="assets/img/shape/banner-shape20.png"
-                        alt="image"
-                    />
-                </div>
-                <div class="divider"></div>
             </div>
         </div>
     </div>
+    <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev"
+    >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleControls"
+        data-bs-slide="next"
+    >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
