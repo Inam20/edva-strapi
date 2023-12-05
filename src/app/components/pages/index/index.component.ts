@@ -10,11 +10,11 @@ import { OnlineTrainingBannerService } from '../online-training-school/online-tr
 export class IndexComponent {
   showScrollTopButton: boolean = false;
   showRegisterButton: boolean = false;
-  public data: any;
+  public online: any;
 
   constructor(private route: Router, private content: OnlineTrainingBannerService) {
     this.content.getData().subscribe((data: any) => {
-      this.data = data;
+      this.online = data;
     });
 
   }
