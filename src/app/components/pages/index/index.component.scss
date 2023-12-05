@@ -48,3 +48,73 @@ h1 {
 .register-btn:hover {
     background-color: var(--blackColor);
 }
+
+.banner-inner-area {
+    width: 85%;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 10px;
+
+    .row {
+        margin: {
+            left: 0;
+            right: 0;
+        };
+        .col-lg-4 {
+            padding: {
+                left: 0;
+                right: 0;
+            };
+            &:last-child {
+                .single-banner-box {
+                    border-right: none;
+                }
+            }
+            &:nth-child(1) {
+                .single-banner-box {
+                    border-radius: 10px 0 0 10px;
+                }
+            }
+            &:nth-child(3) {
+                .single-banner-box {
+                    border-radius: 0 10px 10px 0;
+                }
+            }
+        }
+    }
+}
+
+.single-banner-box {
+    border-right: 1px solid #eeeeee;
+    background-color: var(--whiteColor);
+    padding: 30px 30px 30px 90px;
+    position: relative;
+
+    .icon {
+        position: absolute;
+        left: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        line-height: 1;
+        transition: var(--transition);
+        font-size: 45px;
+
+        i {
+            &.flaticon-world {
+                font-size: 40px;
+            }
+        }
+    }
+    h3 {
+        margin-bottom: 5px;
+        font: {
+            size: 21px;
+            weight: 700;
+        };
+    }
+    &:hover {
+        .icon {
+            color: var(--mainColor);
+        }
+    }
+}

@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { OnlineTrainingBannerService } from '../online-training-school/online-training-banner/online-training-banner.service';
 
 @Component({
   selector: 'app-index',
@@ -9,8 +10,13 @@ import { Router } from '@angular/router';
 export class IndexComponent {
   showScrollTopButton: boolean = false;
   showRegisterButton: boolean = false;
+  public data: any;
 
-  constructor(private route: Router) {
+  constructor(private route: Router, private content: OnlineTrainingBannerService) {
+    this.content.getData().subscribe((data: any) => {
+      this.data = data;
+    });
+
   }
 
   @HostListener('window:scroll', [])
