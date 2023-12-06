@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { OnlineTrainingBannerService } from '../online-training-school/online-training-banner/online-training-banner.service';
+import { FeaturesStyleOneService } from '../../common/features-style-one/features-style-one.service';
 
 @Component({
   selector: 'app-index',
@@ -11,10 +12,14 @@ export class IndexComponent {
   showScrollTopButton: boolean = false;
   showRegisterButton: boolean = false;
   public online: any;
+  public education: any;
 
-  constructor(private route: Router, private content: OnlineTrainingBannerService) {
+  constructor(private route: Router, private content: OnlineTrainingBannerService, private educate: FeaturesStyleOneService) {
     this.content.getData().subscribe((data: any) => {
       this.online = data;
+    });
+    this.educate.getData().subscribe((data: any) => {
+      this.education = data;
     });
 
   }

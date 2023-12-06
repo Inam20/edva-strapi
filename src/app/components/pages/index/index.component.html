@@ -1,5 +1,8 @@
 <app-index-navbar></app-index-navbar>
+<!-- Carousel Images -->
 <app-index-hero></app-index-hero>
+
+<!-- Online Training Section 2 -->
 <div>
     <div class="banner-inner-area content">
         <div class="row justify-content-center">
@@ -18,9 +21,36 @@
         </div>
     </div>
 </div>
-<div class="features-area pt-100 pb-70">
-    <app-features-style-one></app-features-style-one>
+
+<!-- eLearning School Section 3 -->
+<div class="features-area education pt-100 pb-70">
+    <div class="container" *ngIf="education">
+        <div class="section-title">
+            <span class="sub-title">{{ education.subtitle }}</span>
+            <h2>{{ education.title }}​</h2>
+            <p>{{ education.desc }}</p>
+        </div>
+        <div class="row">
+            <div
+                class="col-lg-3 col-sm-6 col-md-6"
+                *ngFor="let content of education.featuresCard"
+            >
+                <div class="single-features-box">
+                    <div class="icon">
+                        <i class="{{ content.icon }}"></i>
+                    </div>
+                    <h3>{{ content.title }}</h3>
+                    <p>{{ content.paragraph }}</p>
+                    <a routerLink="{{ content.link }}" class="link-btn">{{
+                        content.linkText
+                    }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- About Us -->
 <div class="about">
     <div>
         <h1 class="title">About Us</h1>
