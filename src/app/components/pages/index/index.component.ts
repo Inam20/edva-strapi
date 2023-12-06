@@ -2,6 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { OnlineTrainingBannerService } from '../online-training-school/online-training-banner/online-training-banner.service';
 import { FeaturesStyleOneService } from '../../common/features-style-one/features-style-one.service';
+import { CoursesService } from '../../common/courses/courses.service';
 
 @Component({
   selector: 'app-index',
@@ -13,13 +14,17 @@ export class IndexComponent {
   showRegisterButton: boolean = false;
   public online: any;
   public education: any;
+  public course: any
 
-  constructor(private route: Router, private content: OnlineTrainingBannerService, private educate: FeaturesStyleOneService) {
+  constructor(private route: Router, private content: OnlineTrainingBannerService, private educate: FeaturesStyleOneService, private courses: CoursesService) {
     this.content.getData().subscribe((data: any) => {
       this.online = data;
     });
     this.educate.getData().subscribe((data: any) => {
       this.education = data;
+    });
+    this.courses.getData().subscribe((data: any) => {
+      this.course = data;
     });
 
   }
