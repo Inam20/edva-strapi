@@ -61,50 +61,292 @@
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
         </div>
-        <div class="row" *ngIf="course">
-            <div
-                class="col-lg-6 col-md-12"
-                *ngFor="let content of course.slice(0, 6)"
-            >
-                <div class="single-courses-item">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4">
-                            <div
-                                class="courses-image"
-                                style="background-image: url('{{
-                                    content.image.url
-                                }}');"
-                            >
-                                <img [src]="content.image.url" alt="image" />
-                                <a
-                                    [routerLink]="['/course', content.slug]"
-                                    class="link-btn"
-                                ></a>
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="course">
+                    <div class="single-courses-item">
+                        <div class="row course-item">
+                            <div class="col-lg-4 col-md-4">
+                                <div
+                                    class="courses-image"
+                                    style="
+                                        background-image: url('../../../../assets/img/vector/course-1.jpg');
+                                    "
+                                >
+                                    <img
+                                        src="../../../../assets/img/vector/course-1.jpg"
+                                        alt="image"
+                                    />
+                                    <a
+                                        [routerLink]="['/course']"
+                                        class="link-btn"
+                                    ></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-8">
+                                <div class="courses-content">
+                                    <a routerLink="/" class="fav"
+                                        ><i class="flaticon-heart"></i
+                                    ></a>
+                                    <span class="price">$0</span>
+                                    <h3>
+                                        <a [routerLink]="['/course']">
+                                            SQL Server Availability and Disaster
+                                            Recovery High (HA/DR)
+                                        </a>
+                                    </h3>
+                                    <ul
+                                        class="courses-content-footer d-flex justify-content-between align-items-center"
+                                    >
+                                        <li>
+                                            <i class="flaticon-agenda"></i>
+                                            05 Lessons
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-people"></i>
+                                            77 Students
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-8 col-md-8">
-                            <div class="courses-content">
-                                <a routerLink="/" class="fav"
-                                    ><i class="flaticon-heart"></i
-                                ></a>
-                                <span class="price">${{ content.price }}</span>
-                                <h3>
-                                    <a [routerLink]="['/course', content.slug]">
-                                        {{ content.title }}
-                                    </a>
-                                </h3>
-                                <ul
-                                    class="courses-content-footer d-flex justify-content-between align-items-center"
+                    </div>
+                    <div class="single-courses-item">
+                        <div class="row course-item">
+                            <div class="col-lg-4 col-md-4">
+                                <div
+                                    class="courses-image"
+                                    style="
+                                        background-image: url('../../../../assets/img/vector/course-2.jpg');
+                                    "
                                 >
-                                    <li *ngIf="content.numberOfLesson">
-                                        <i class="flaticon-agenda"></i>
-                                        {{ content.numberOfLesson }} Lessons
-                                    </li>
-                                    <li *ngIf="content.numberOfStudent">
-                                        <i class="flaticon-people"></i>
-                                        {{ content.numberOfStudent }} Students
-                                    </li>
-                                </ul>
+                                    <img
+                                        src="../../../../assets/img/vector/course-2.jpg"
+                                        alt="image"
+                                    />
+                                    <a
+                                        [routerLink]="['/course']"
+                                        class="link-btn"
+                                    ></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-8">
+                                <div class="courses-content">
+                                    <a routerLink="/" class="fav"
+                                        ><i class="flaticon-heart"></i
+                                    ></a>
+                                    <span class="price">$44</span>
+                                    <h3>
+                                        <a [routerLink]="['/course']">
+                                            Servlets and JSPs Tutorial: Learn
+                                            Web Applications With Java
+                                        </a>
+                                    </h3>
+                                    <ul
+                                        class="courses-content-footer d-flex justify-content-between align-items-center"
+                                    >
+                                        <li>
+                                            <i class="flaticon-agenda"></i>
+                                            03 Lessons
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-people"></i>
+                                            87 Students
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="course">
+                    <div class="single-courses-item">
+                        <div class="row course-item">
+                            <div class="col-lg-4 col-md-4">
+                                <div
+                                    class="courses-image"
+                                    style="
+                                        background-image: url('../../../../assets/img/vector/course-3.jpg');
+                                    "
+                                >
+                                    <img
+                                        src="../../../../assets/img/vector/course-3.jpg"
+                                        alt="image"
+                                    />
+                                    <a
+                                        [routerLink]="['/course']"
+                                        class="link-btn"
+                                    ></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-8">
+                                <div class="courses-content">
+                                    <a routerLink="/" class="fav"
+                                        ><i class="flaticon-heart"></i
+                                    ></a>
+                                    <span class="price">$57</span>
+                                    <h3>
+                                        <a [routerLink]="['/course']">
+                                            JavaScript - The Complete Guide 2022
+                                            (Beginner + Advanced)
+                                        </a>
+                                    </h3>
+                                    <ul
+                                        class="courses-content-footer d-flex justify-content-between align-items-center"
+                                    >
+                                        <li>
+                                            <i class="flaticon-agenda"></i>
+                                            05 Lessons
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-people"></i>
+                                            77 Students
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-courses-item">
+                        <div class="row course-item">
+                            <div class="col-lg-4 col-md-4">
+                                <div
+                                    class="courses-image"
+                                    style="
+                                        background-image: url('../../../../assets/img/vector/course-4.jpg');
+                                    "
+                                >
+                                    <img
+                                        src="../../../../assets/img/vector/course-4.jpg"
+                                        alt="image"
+                                    />
+                                    <a
+                                        [routerLink]="['/course']"
+                                        class="link-btn"
+                                    ></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-8">
+                                <div class="courses-content">
+                                    <a routerLink="/" class="fav"
+                                        ><i class="flaticon-heart"></i
+                                    ></a>
+                                    <span class="price">$41</span>
+                                    <h3>
+                                        <a [routerLink]="['/course']">
+                                            RPG Core Combat Creator: Learn
+                                            Intermediate C# Coding
+                                        </a>
+                                    </h3>
+                                    <ul
+                                        class="courses-content-footer d-flex justify-content-between align-items-center"
+                                    >
+                                        <li>
+                                            <i class="flaticon-agenda"></i>
+                                            01 Lessons
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-people"></i>
+                                            21 Students
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="course">
+                    <div class="single-courses-item">
+                        <div class="row course-item">
+                            <div class="col-lg-4 col-md-4">
+                                <div
+                                    class="courses-image"
+                                    style="
+                                        background-image: url('../../../../assets/img/vector/course-5.jpg');
+                                    "
+                                >
+                                    <img
+                                        src="../../../../assets/img/vector/course-5.jpg"
+                                        alt="image"
+                                    />
+                                    <a
+                                        [routerLink]="['/course']"
+                                        class="link-btn"
+                                    ></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-8">
+                                <div class="courses-content">
+                                    <a routerLink="/" class="fav"
+                                        ><i class="flaticon-heart"></i
+                                    ></a>
+                                    <span class="price">$45</span>
+                                    <h3>
+                                        <a [routerLink]="['/course']">
+                                            Master Microservices with Spring
+                                            Boot and Spring Cloud
+                                        </a>
+                                    </h3>
+                                    <ul
+                                        class="courses-content-footer d-flex justify-content-between align-items-center"
+                                    >
+                                        <li>
+                                            <i class="flaticon-agenda"></i>
+                                            01 Lessons
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-people"></i>
+                                            67 Students
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-courses-item">
+                        <div class="row course-item">
+                            <div class="col-lg-4 col-md-4">
+                                <div
+                                    class="courses-image"
+                                    style="
+                                        background-image: url('../../../../assets/img/vector/course-6.jpg');
+                                    "
+                                >
+                                    <img
+                                        src="../../../../assets/img/vector/course-6.jpg"
+                                        alt="image"
+                                    />
+                                    <a
+                                        [routerLink]="['/course']"
+                                        class="link-btn"
+                                    ></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-8">
+                                <div class="courses-content">
+                                    <a routerLink="/" class="fav"
+                                        ><i class="flaticon-heart"></i
+                                    ></a>
+                                    <span class="price">$119</span>
+                                    <h3>
+                                        <a [routerLink]="['/course']">
+                                            Angular & NodeJS - The MEAN Stack
+                                            Guide [2022 Edition]
+                                        </a>
+                                    </h3>
+                                    <ul
+                                        class="courses-content-footer d-flex justify-content-between align-items-center"
+                                    >
+                                        <li>
+                                            <i class="flaticon-agenda"></i>
+                                            03 Lessons
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-people"></i>
+                                            84 Students
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -134,6 +376,12 @@
 
 <!-- Learning Management Feedback -->
 <app-testimonials-style-two></app-testimonials-style-two>
+
+<!-- Language School How to Apply -->
+<app-how-to-apply></app-how-to-apply>
+
+<!-- Language School Free Trial -->
+<app-free-trial></app-free-trial>
 
 <!-- About Us -->
 <div class="about">
