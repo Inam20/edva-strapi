@@ -375,7 +375,39 @@
 <app-funfacts-feedback></app-funfacts-feedback>
 
 <!-- Learning Management Feedback -->
-<app-testimonials-style-two></app-testimonials-style-two>
+<div class="testimonials-area ptb-100" *ngIf="feedback">
+    <div class="container">
+        <div class="section-title">
+            <span class="sub-title">{{ feedback.subtitle }}</span>
+            <h2 class="feedback-title">{{ feedback.title }}</h2>
+            <p>{{ feedback.paragraph }}</p>
+        </div>
+        <div class="testimonials-slides-two">
+            <owl-carousel-o [options]="testimonialsSlidesTwo">
+                <ng-template
+                    carouselSlide
+                    *ngFor="let content of feedback.allTestimonials"
+                >
+                    <div class="testimonials-item">
+                        <div class="row align-items-center">
+                            <div class="col-lg-8 col-md-12">
+                                <p>{{ content.feedbackQuote }}</p>
+                                <h3>{{ content.authorName }}</h3>
+                                <span>{{ content.authorDesignation }}</span>
+                            </div>
+                            <div class="col-lg-4 col-md-12 text-center">
+                                <img
+                                    [src]="content.authorImage.url"
+                                    alt="image"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+    </div>
+</div>
 
 <!-- Language School How to Apply -->
 <app-how-to-apply></app-how-to-apply>

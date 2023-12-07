@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { OnlineTrainingBannerService } from '../online-training-school/online-training-banner/online-training-banner.service';
 import { FeaturesStyleOneService } from '../../common/features-style-one/features-style-one.service';
 import { CoursesService } from '../../common/courses/courses.service';
+import { OwlOptions } from 'ngx-owl-carousel-o';
+import { TestimonialsStyleTwoService } from '../../common/testimonials-style-two/testimonials-style-two.service';
 
 @Component({
   selector: 'app-index',
@@ -14,9 +16,10 @@ export class IndexComponent {
   showRegisterButton: boolean = false;
   public online: any;
   public education: any;
-  public course: any
+  public course: any;
+  public feedback: any;
 
-  constructor(private route: Router, private content: OnlineTrainingBannerService, private educate: FeaturesStyleOneService, private courses: CoursesService) {
+  constructor(private route: Router, private feed: TestimonialsStyleTwoService, private content: OnlineTrainingBannerService, private educate: FeaturesStyleOneService, private courses: CoursesService) {
     this.content.getData().subscribe((data: any) => {
       this.online = data;
     });
@@ -26,6 +29,9 @@ export class IndexComponent {
     this.courses.getData().subscribe((data: any) => {
       this.course = data;
     });
+    this.feed.getData().subscribe((data: any) => {
+      this.feedback = data;
+    })
 
   }
 
@@ -47,5 +53,19 @@ export class IndexComponent {
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  testimonialsSlidesTwo: OwlOptions = {
+    items: 1,
+    nav: true,
+    loop: true,
+    dots: false,
+    autoplay: true,
+    autoplayHoverPause: true,
+    navText: [
+      "<i class='bx bx-chevron-left'></i>",
+      "<i class='bx bx-chevron-right'></i>"
+    ]
+  }
+
 
 }

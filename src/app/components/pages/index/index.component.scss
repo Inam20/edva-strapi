@@ -332,4 +332,18 @@ h1 {
 }
 
 // Online Training Section 3 
-@import "../../common/courses/courses.component.scss"
+@import "../../common/courses/courses.component.scss";
+
+// Feedback 
+@import "../../common/testimonials/testimonials.component.scss";
+
+.testimonials-area {
+    background-image: url(../../../../assets/feedback-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.feedback-title {
+    color: #fff;
+}
