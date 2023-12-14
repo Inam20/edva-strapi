@@ -55,6 +55,7 @@ import { CoursesCheckoutComponent } from './components/pages/courses-checkout/co
 import { CoursesCartComponent } from './components/pages/courses-cart/courses-cart.component';
 import { MyCourseComponent } from './components/pages/my-course/my-course.component';
 import { IndexComponent } from './components/pages/index/index.component';
+import { IndexContactComponent } from './components/pages/index/index-contact/index-contact.component';
 
 const routes: Routes = [
     { path: '', component: ElearningSchoolComponent },
@@ -120,6 +121,7 @@ const routes: Routes = [
     { path: 'tag/:slug', component: BlogTagSearchComponent },
     { path: 'contact', component: ContactUsComponent },
     { path: 'index', component: IndexComponent },
+    { path: 'index_contact', component: IndexContactComponent },
     // Here add new pages component
 
     { path: '**', component: ErrorComponent },

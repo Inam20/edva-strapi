@@ -183,6 +183,7 @@ import { IndexComponent } from './components/pages/index/index.component';
 import { IndexNavbarComponent } from './components/pages/index/index-navbar/index-navbar.component';
 import { IndexFooterComponent } from './components/pages/index/index-footer/index-footer.component';
 import { IndexHeroComponent } from './components/pages/index/index-hero/index-hero.component';
+import { IndexContactComponent } from './components/pages/index/index-contact/index-contact.component';
 
 const customNotifierOptions: NotifierOptions = {
     position: {
@@ -364,7 +365,8 @@ const customNotifierOptions: NotifierOptions = {
         IndexNavbarComponent,
         IndexFooterComponent,
         IndexHeroComponent,
-        HideScrollTopDirective
+        HideScrollTopDirective,
+        IndexContactComponent
     ],
     imports: [
         BrowserModule,
