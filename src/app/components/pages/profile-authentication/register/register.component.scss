@@ -104,6 +104,8 @@
             font-size: 25px;
         }
         form {
+
+            margin-left: 20px;
             .lost-your-password-wrap {
                 text-align: start;
                 margin-top: 15px;
@@ -113,6 +115,16 @@
                 font-size: 15px;
             }
         }
+    }
+
+    .register-bg {
+        background-image: none;
+    }
+
+    .register-form {
+        display: block;
+        margin: auto;
+        width: 70%;
     }
 
 }
