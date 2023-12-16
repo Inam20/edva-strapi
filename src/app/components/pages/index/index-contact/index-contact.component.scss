@@ -94,7 +94,7 @@
 
 .contact-form {
     width: 45%;
-    overflow: hidden;
+    overflow:none;
     padding: 33px;
     border-radius: 5px;
     background: {
@@ -247,6 +247,21 @@
                 font-size: 14.5px;
             }
         }
+
+        width: 100%;
+        margin: auto;
+    }
+
+    .center-section {
+        display: block;
+        margin: auto;
+    }
+
+    #map {
+        width: 100%;
+        margin: auto;
+        height: 400px;
+        margin-top: 30px;
     }
 
 }
