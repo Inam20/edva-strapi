@@ -90,6 +90,20 @@
     font-size: 0.8em;
 }
 
+.radio {
+    display: flex;
+}
+
+.radio-input {
+    margin-right: 10px;
+}
+
+.radio-label {
+    margin: auto;
+    margin-top: 10px;
+    margin-right: 40px;
+}
+
 @media only screen and (max-width: 767px) {
     .register-form {
         margin-top: 40px;
