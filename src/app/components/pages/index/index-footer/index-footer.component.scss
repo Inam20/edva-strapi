@@ -130,6 +130,11 @@
     };
 }
 
+.footer-space {
+    display: flex;
+    justify-content: space-between;
+}
+
 @media only screen and (max-width: 767px) {
 
     .footer-area {
