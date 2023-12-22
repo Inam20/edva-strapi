@@ -47,7 +47,7 @@ export class IndexComponent {
   }
 
   navigateToRegister() {
-    this.route.navigate(['/profile-authentication/register']);
+    this.route.navigate(['/register']);
   }
 
   scrollToTop() {
