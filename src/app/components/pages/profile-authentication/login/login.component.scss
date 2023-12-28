@@ -147,6 +147,7 @@
             width: 100%;
             border-radius: 5px;
             padding: 14.5px 30px;
+            margin-bottom: 10px;
             font: {
                 weight: 700;
                 size: var(--fontSize);
@@ -165,8 +166,44 @@
 }
 
 .reg {
-    font-style: italic;
+    background-color: var(--mainColor);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 10px;
+    &:hover {
+        background-color: var(--blackColor);
+        color: var(--whiteColor);
+    }
+}
+
+.forget {
     text-decoration: underline;
+    text-align: left;
+}
+
+.or {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    hr {
+        width: 33%;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+.google {
+    background-color: #fff !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+    &:hover {
+        color: var(--mainColor) !important;
+    }
+    &-icon {
+        height: 25px;
+    }
 }
 
 @media only screen and (max-width: 767px) {
