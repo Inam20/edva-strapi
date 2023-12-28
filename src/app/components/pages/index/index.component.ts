@@ -5,6 +5,10 @@ import { FeaturesStyleOneService } from '../../common/features-style-one/feature
 import { CoursesService } from '../../common/courses/courses.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { TestimonialsStyleTwoService } from '../../common/testimonials-style-two/testimonials-style-two.service';
+import { UserService } from '../../../user.service';
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-index',
@@ -12,14 +16,21 @@ import { TestimonialsStyleTwoService } from '../../common/testimonials-style-two
   styleUrls: ['./index.component.scss']
 })
 export class IndexComponent {
+  private API_URL = environment.API_URL;
   showScrollTopButton: boolean = false;
   showRegisterButton: boolean = false;
+  isLoggedIn = this.userService.isLoggedIn();
+  userData = this.userService.getUser();
+  userOrders: any;
+  public userCertificate = 0;
+  public userCourses = 1;
   public online: any;
   public education: any;
   public course: any;
   public feedback: any;
 
-  constructor(private route: Router, private feed: TestimonialsStyleTwoService, private content: OnlineTrainingBannerService, private educate: FeaturesStyleOneService, private courses: CoursesService) {
+  constructor(private route: Router, private http: HttpClient,
+    private router: ActivatedRoute, private userService: UserService, private feed: TestimonialsStyleTwoService, private content: OnlineTrainingBannerService, private educate: FeaturesStyleOneService, private courses: CoursesService) {
     this.content.getData().subscribe((data: any) => {
       this.online = data;
     });
@@ -32,7 +43,13 @@ export class IndexComponent {
     this.feed.getData().subscribe((data: any) => {
       this.feedback = data;
     })
-
+    this.router.params.subscribe(() => {
+      let url = `${this.API_URL}/orders?users_permissions_user_in=${this.userData.id}`;
+      let ddd = this.http.get(url);
+      ddd.subscribe((res) => {
+        this.userOrders = res;
+      });
+    });
   }
 
   @HostListener('window:scroll', [])
@@ -66,6 +83,7 @@ export class IndexComponent {
       "<i class='bx bx-chevron-right'></i>"
     ]
   }
+
 
 
 }

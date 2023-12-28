@@ -1,4 +1,21 @@
 <app-index-navbar></app-index-navbar>
+
+<div *ngIf="isLoggedIn" class="container profile">
+    <h3>
+        Hi <strong> {{ userData.username }}, </strong>
+    </h3>
+    <div class="courses">
+        <div class="courses-card">
+            <h4>Total Courses: {{ userOrders.length }}</h4>
+        </div>
+        <div class="courses-card">
+            <h4>Certificates: {{ userCertificate }}</h4>
+        </div>
+        <div class="courses-card">
+            <h4>Incomplete Courses: {{ userOrders.length }}</h4>
+        </div>
+    </div>
+</div>
 <!-- Carousel Images -->
 <app-index-hero></app-index-hero>
 
