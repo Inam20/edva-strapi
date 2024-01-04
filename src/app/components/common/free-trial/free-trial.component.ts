@@ -18,19 +18,14 @@ export class FreeTrialComponent implements OnInit {
     private readonly notifier: NotifierService;
     isLoggedIn = this.userService.isLoggedIn();
 
-    logForm = this.formBuilder.group({
-        identifier: ['', Validators.required],
-        password: ['', [Validators.required, Validators.minLength(6)]]
-    });
-
-    regForm = this.formBuilder.group({
-        username: ['', Validators.required],
+    freeForm = this.formBuilder.group({
+        name: ['', Validators.required],
         email: ['', [Validators.required]],
-        password: ['', [Validators.required, Validators.minLength(6)]]
+        phoneNumber: ['', [Validators.required]],
     });
 
     constructor(
-		private content: FreeTrialService,
+        private content: FreeTrialService,
         private formBuilder: UntypedFormBuilder,
         private userService: UserService,
         private http: HttpClient,
@@ -42,27 +37,27 @@ export class FreeTrialComponent implements OnInit {
         this.notifier = notifierService;
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void { }
 
     /**
     * User Registration
     */
-     onRegister(): void {
-        let userData = this.regForm.value;
-        const {username,email,password} = userData;
-        let url = `${this.API_URL}/auth/local/register`;
+    onFree(): void {
+        let userData = this.freeForm.value;
+        const { name, email, phoneNumber } = userData;
+        let url = `${this.API_URL}/frees`;
         this.http
-		.post<any>(url, {
-			username,
-			email,
-			password
-		})
-		.subscribe((response) => {
-			this.notifier.notify('success', 'Congratulations! Registration successful. Please login using the credential.');
-		},
-		(e) => {
-			this.notifier.notify('error', e.error.data[0].messages[0].message);
-		});
+            .post<any>(url, {
+                name,
+                email,
+                phoneNumber,
+            })
+            .subscribe((response) => {
+                this.notifier.notify('success', 'Congratulations! Registration successful. Please login using the credential.');
+            },
+                (e) => {
+                    this.notifier.notify('error', e.error.data[0].messages[0].message);
+                });
     }
 
 }

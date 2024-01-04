@@ -7,15 +7,14 @@ import { environment } from '../../../../../src/environments/environment';
 })
 export class FreeTrialService {
 
-    private API_URL= environment.API_URL;
+    private API_URL = environment.API_URL;
 
     constructor(
-        private http : HttpClient
-    ) {}
+        private http: HttpClient
+    ) { }
 
-    getData(){
+    getData() {
         let url = `${this.API_URL}/free-trial`;
         return this.http.get(url);
     }
-
 }
