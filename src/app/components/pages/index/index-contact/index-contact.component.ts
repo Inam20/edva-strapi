@@ -19,6 +19,7 @@ export class IndexContactComponent implements OnInit {
     name: ['', [Validators.required]],
     email: ['', [Validators.required]],
     phoneNumber: ['', [Validators.required]],
+    userType: ['student', [Validators.required]],
     message: ['', [Validators.required]]
   });
 
@@ -38,11 +39,11 @@ export class IndexContactComponent implements OnInit {
 
   onSubmit(): void {
     let checkData = this.contactForm.value;
-    const { name, email, phoneNumber, message } = checkData;
+    const { name, email, phoneNumber, userType, message } = checkData;
     let url = `${this.API_URL}/contact-inboxes`;
     this.http
       .post<any>(url, {
-        name, email, phoneNumber, message
+        name, email, phoneNumber, userType, message
       })
       .subscribe((response) => {
         this.notifier.notify('success', 'Message Sent Successfully!');
