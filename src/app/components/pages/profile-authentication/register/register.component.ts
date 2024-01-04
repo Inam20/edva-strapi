@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
     username: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     phoneNumber: ['', [Validators.required, Validators.maxLength(10)]],
+    userType: ['student', Validators.required],
     password: ['', [Validators.required, Validators.minLength(6)]],
   });
 
@@ -38,13 +39,14 @@ export class RegisterComponent implements OnInit {
   onRegister(): void {
     if (this.regForm.valid) {
       let userData = this.regForm.value;
-      const { username, email, phoneNumber, password } = userData;
+      const { username, email, phoneNumber, userType, password } = userData;
       let url = `${this.API_URL}/auth/local/register`;
       this.http
         .post<any>(url, {
           username,
           email,
           phoneNumber,
+          userType,
           password,
         })
         .subscribe(
